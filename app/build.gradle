@@ -108,6 +108,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Ali mask
+    implementation 'com.github.AliAzaz:Edittext-Library:2.0.0'
+    implementation 'com.github.AliAzaz:AndroidValidatorCrawler:1.0.3'
+
     // WorkManager
     def work_version = '2.5.0'
     implementation "androidx.work:work-runtime:$work_version"// WorkManager (Java only)

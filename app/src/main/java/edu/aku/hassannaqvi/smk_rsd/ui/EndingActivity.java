@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityEndingBinding;
 import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMobileHealth;
 
 import static edu.aku.hassannaqvi.smk_rsd.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.mobileHealth;
 import static edu.aku.hassannaqvi.smk_rsd.utils.extension.ActivityExtKt.gotoActivity;
 
@@ -55,7 +56,7 @@ public class EndingActivity extends AppCompatActivity {
     }
 
     private void saveDraft() {
-        mobileHealth.setStatus(bi.istatusa.isChecked() ? "1"
+        form.setStatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
                 : bi.istatusc.isChecked() ? "3"
                 : "-1");

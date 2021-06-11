@@ -44,10 +44,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CreateSQL.SQL_CREATE_USERS);
         db.execSQL(CreateSQL.SQL_CREATE_DISTRICTS);
-        db.execSQL(CreateSQL.SQL_CREATE_UCS);
-        db.execSQL(CreateSQL.SQL_CREATE_CLUSTERS);
+        /*db.execSQL(CreateSQL.SQL_CREATE_UCS);
+        db.execSQL(CreateSQL.SQL_CREATE_CLUSTERS);*/
         db.execSQL(CreateSQL.SQL_CREATE_FORMS);
-        db.execSQL(CreateSQL.SQL_CREATE_HHIDENTIFY);
+       /* db.execSQL(CreateSQL.SQL_CREATE_HHIDENTIFY);
         db.execSQL(CreateSQL.SQL_CREATE_LHW_HOUSEHOLD);
         db.execSQL(CreateSQL.SQL_CREATE_HHMEMBERS);
         db.execSQL(CreateSQL.SQL_CREATE_MWRA);
@@ -55,15 +55,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_CHILD_INFO);
         db.execSQL(CreateSQL.SQL_CREATE_CHILD);
         db.execSQL(CreateSQL.SQL_CREATE_IMMUNIZATION);
-        db.execSQL(CreateSQL.SQL_CREATE_MOBILE_HEALTH);
+        db.execSQL(CreateSQL.SQL_CREATE_MOBILE_HEALTH);*/
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
-        db.execSQL(CreateSQL.SQL_CREATE_BL_RANDOM);
+       /* db.execSQL(CreateSQL.SQL_CREATE_BL_RANDOM);
         db.execSQL(CreateSQL.SQL_CREATE_CAMP);
         db.execSQL(CreateSQL.SQL_CREATE_DOCTOR);
         db.execSQL(CreateSQL.SQL_CREATE_LHW);
         db.execSQL(CreateSQL.SQL_CREATE_TEHSIL);
         db.execSQL(CreateSQL.SQL_CREATE_LHW_HF);
-        db.execSQL(CreateSQL.SQL_CREATE_PROVINCE);
+        db.execSQL(CreateSQL.SQL_CREATE_PROVINCE);*/
         db.execSQL(CreateSQL.SQL_CREATE_RSD_HF);
     }
 

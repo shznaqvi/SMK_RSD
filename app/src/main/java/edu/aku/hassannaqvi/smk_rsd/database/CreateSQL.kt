@@ -24,7 +24,7 @@ object CreateSQL {
             + Form.FormsTable.COLUMN_SYNCED + " TEXT,"
             + Form.FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + Form.FormsTable.COLUMN_APPVERSION + " TEXT,"
-            + Form.FormsTable.COLUMN_HF_CODE + " TEXT,"
+            /*+ Form.FormsTable.COLUMN_HF_CODE + " TEXT,"
             + Form.FormsTable.COLUMN_HF_NAME + " TEXT,"
             + Form.FormsTable.COLUMN_TEHSIL_CODE + " TEXT,"
             + Form.FormsTable.COLUMN_TEHSIL_NAME + " TEXT,"
@@ -32,7 +32,7 @@ object CreateSQL {
             + Form.FormsTable.COLUMN_LHW_NAME + " TEXT,"
             + Form.FormsTable.COLUMN_KHANDAN_NUMBER + " TEXT,"
             + Form.FormsTable.COLUMN_SA + " TEXT,"
-            + Form.FormsTable.COLUMN_SB + " TEXT"
+            + Form.FormsTable.COLUMN_SB + " TEXT"*/
             + " );")
 
 
