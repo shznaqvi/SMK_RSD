@@ -173,6 +173,7 @@
             </androidx.cardview.widget.CardView>
 
 
+
             <!--EndButton LinearLayout-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -185,9 +186,10 @@
                     android:id="@+id/btn_End"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/red_overlay"
-                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/button_shape_red"
+                    android:drawableTint="#ea0000"
+                    android:onClick="BtnEnd"
                     android:text="Cancel"
                     android:textColor="@color/white" />
 
@@ -195,13 +197,15 @@
                     android:id="@+id/btn_Continue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/green_overlay"
-                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/button_shape_green"
+                    android:drawableTint="#00ea00"
+                    android:onClick="BtnContinue"
                     android:text="Save"
                     android:textColor="@color/white" />
 
             </LinearLayout>
+            <!--EndButton LinearLayout-->
 
 
         </LinearLayout>

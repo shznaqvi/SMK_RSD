@@ -1,26 +1,34 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <data>
 
         <import type="android.view.View" />
+
         <!--<variable
             name="form"
             type="edu.aku.hassannaqvi.sk.models.Form" />-->
+
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.smk_rsd.ui.Section01Activity" />
+
     </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <!-- hfinfo  Title   -->
             <androidx.cardview.widget.CardView
@@ -36,8 +44,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/hfinfo" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- distname  Input   -->
             <androidx.cardview.widget.CardView
@@ -62,19 +73,23 @@
                             android:text="@string/Q_distname" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/distname" />
+
                     </LinearLayout>
+
 
                     <EditText
                         android:id="@+id/distname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/distname" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- distcode  Input-Numeric   -->
             <androidx.cardview.widget.CardView
@@ -99,10 +114,10 @@
                             android:text="@string/Q_distcode" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/distcode" />
+
                     </LinearLayout>
 
                     <com.edittextpicker.aliazaz.EditTextPicker
@@ -144,10 +159,10 @@
                             android:text="@string/Q_facilityname" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/facilityname" />
+
                     </LinearLayout>
 
                     <EditText
@@ -155,8 +170,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/facilityname" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- facilitycode  Input-Numeric   -->
             <androidx.cardview.widget.CardView
@@ -181,10 +199,10 @@
                             android:text="@string/Q_facilitycode" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/facilitycode" />
+
                     </LinearLayout>
 
                     <com.edittextpicker.aliazaz.EditTextPicker
@@ -195,10 +213,13 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="0"
                         app:type="range" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- reportingmonth  Input-Numeric   -->
             <androidx.cardview.widget.CardView
@@ -223,10 +244,10 @@
                             android:text="@string/Q_reportingmonth" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/reportingmonth" />
+
                     </LinearLayout>
 
                     <com.edittextpicker.aliazaz.EditTextPicker
@@ -268,9 +289,8 @@
                             android:text="@string/Q_reportingyear" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/reportingyear" />
 
                     </LinearLayout>
