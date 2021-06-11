@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SMKRSD">
-        <activity android:name=".ui.Section05Activity"></activity>
+        <activity android:name=".ui.Section06Activity"></activity>
+        <activity android:name=".ui.Section05Activity" />
         <activity android:name=".ui.Section04Activity" />
         <activity android:name=".ui.Section03Activity" />
         <activity android:name=".ui.Section01Activity" />
