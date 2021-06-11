@@ -9,7 +9,7 @@
             type="edu.aku.hassannaqvi.sk.models.Form" />-->
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.sk.ui.sections.SectionFActivity" />
+            type="edu.aku.hassannaqvi.smk_rsd.ui.Section04Activity" />
     </data>
 
     <ScrollView
