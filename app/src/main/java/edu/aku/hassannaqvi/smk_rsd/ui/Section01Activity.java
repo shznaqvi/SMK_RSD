@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import edu.aku.hassannaqvi.smk_rsd.R;
 
@@ -13,4 +13,14 @@ public class Section01Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section01);
     }
+
+    private void setupSkips() {
+
+    }
+
+    private void saveDraft() {
+
+    }
 }
+
+
