@@ -135,10 +135,10 @@
                             android:text="@string/Q_cfp02" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/cfp02" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -163,9 +163,9 @@
                             android:maxLength="4"
                             android:tag="cfp02a"
                             android:text='@{cfp02a.checked ? cfp02ax.getText().toString() : ""}'
-
                             android:visibility='@{cfp02a.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="9999"
+                            app:minValue="0"
                             app:type="range" />
 
                         <CheckBox
@@ -173,9 +173,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/cfp02b" />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- cfp03  CheckBox   -->
             <androidx.cardview.widget.CardView
