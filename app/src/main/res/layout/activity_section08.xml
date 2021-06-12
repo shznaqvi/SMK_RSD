@@ -157,37 +157,61 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str01t" />
 
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str01d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str01d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str01d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str01d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str01m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str01d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str01d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str01m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str01m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str01m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str01m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str01m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -272,37 +296,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str02t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str02d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str02d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str02d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str02d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str02m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str02d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str02d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str02m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str02m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str02m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str02m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str02m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -387,37 +433,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str03t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str03d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str03d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str03d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str03d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str03m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str03d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str03d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str03m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str03m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str03m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str03m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str03m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -502,37 +570,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str04t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str04d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str04d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str04d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str04d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str04m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str04d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str04d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str04m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str04m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str04m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str04m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str04m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -617,37 +707,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str05t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str05d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str05d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str05d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str05d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str05m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str05d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str05d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str05m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str05m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str05m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str05m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str05m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -732,37 +844,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str06t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str06d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str06d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str06d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str06d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str06m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str06d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str06d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str06m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str06m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str06m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str06m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str06m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -847,37 +981,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str07t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str07d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str07d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str07d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str07d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str07m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str07d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str07d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str07m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str07m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str07m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str07m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str07m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -962,37 +1118,59 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str08t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str08d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str08d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str08d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str08d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str08m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str08d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str08d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str08m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str08m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
+                                app:type="range" />
+                        </LinearLayout>
 
-                        app:type="range" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str08m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str08m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str08m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -1077,42 +1255,62 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str09t" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str09d" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str09d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str09d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="29"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        app:type="range" />
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str09d" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str09m" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str09d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str09d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="29"
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/str09m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/str09m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:maxValue="23"
-                        app:minValue="0"
-                        app:type="range" />
+                                app:type="range" />
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str09m" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/str09m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/str09m"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="23"
+                                app:minValue="0"
+                                app:type="range" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
 
             <!--EndButton LinearLayout-->
