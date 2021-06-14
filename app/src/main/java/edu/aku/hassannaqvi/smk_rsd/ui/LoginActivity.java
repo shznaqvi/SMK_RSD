@@ -1,15 +1,17 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.databinding.DataBindingUtil;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,7 +19,11 @@ import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Validator;
+
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -27,6 +33,7 @@ import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityLoginBinding;
+import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import kotlin.annotation.Target;
 
 import static java.lang.Thread.sleep;
@@ -78,36 +85,34 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-        Target viewTarget = new ViewTarget(bi.syncBtn.getId(), this);
-
     }
 
-    public void attemptLogin() {
+    public void attemptLogin(View view) {
         if (mAuthTask != null) {
             return;
         }
-        bi.userName.setError(null);
-        bi.passowrd.setError(null);
-        String email = bi.userName.getText().toString();
-        String password = bi.passowrd.getText().toString();
+        bi.username.setError(null);
+        bi.password.setError(null);
+        String email = bi.username.getText().toString();
+        String password = bi.password.getText().toString();
         boolean cancel = false;
         View focusView = null;
 
-        if (!TextUtils.isEmpty(password) && !Util.isPasswordValid(password)) {
-            bi.passowrd.setError(getString(R.string.error_invalid_password));
-            focusView = bi.passowrd;
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            bi.password.setError(getString(R.string.error_invalid_password));
+            focusView = bi.password;
             cancel = true;
         }
         if (TextUtils.isEmpty(email)) {
-            bi.userName.setError(getString(R.string.error_field_required));
-            focusView = bi.userName;
+            bi.username.setError(getString(R.string.error_field_required));
+            focusView = bi.username;
             cancel = true;
         }
 
         if (cancel) {
             focusView.requestFocus();
         } else {
-            showProgress(true);
+        //    showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
@@ -129,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this, SyncActivity.class));
     }
 
-    private void showProgress(boolean b) {
+/*    private void showProgress(boolean b) {
         if (b) {
             bi.loginBtn.setVisibility(View.GONE);
             bi.progressBar.setVisibility(View.VISIBLE);
@@ -137,7 +142,9 @@ public class LoginActivity extends AppCompatActivity {
             bi.loginBtn.setVisibility(View.VISIBLE);
             bi.progressBar.setVisibility(View.GONE);
         }
-    }
+    }*/
+
+
 
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
@@ -171,27 +178,30 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
-            HashMap<String, String> tagValues = MainApp.getTagValues(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this);
-            LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            /*LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                    || (tagValues.get("org") == null || tagValues.get("org").equals("5"))) {
-                DatabaseHelper db = new DatabaseHelper(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this);
-                if ((mEmail.equals("dmu@aku") && mPassword.equals("aku?dmu")) || db.Login(mEmail, mPassword)
-                        || (mEmail.equals("test1234") && mPassword.equals("test1234"))) {
-                    MainApp.userName = mEmail;
-                    MainApp.admin = mEmail.contains("@");
+                    || (tagValues.get("org") == null || tagValues.get("org").equals("5"))) {*/
+            db = MainApp.appInfo.dbHelper;
+            MainApp.user = db.getLoginUser(mEmail, mPassword);
 
-                    Intent iLogin = new Intent(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this, MainActivity.class);
-                    startActivity(iLogin);
-                    showProgress(false);
+            if ((mEmail.equals("dmu@aku") && mPassword.equals("aku?dmu")) ||
+                    (mEmail.equals("guest@aku") && mPassword.equals("aku1234"))
+                    || (mEmail.equals("test1234") && mPassword.equals("test1234")) || MainApp.user != null) {
 
-                } else {
-                    bi.passowrd.setError(getString(R.string.error_incorrect_password));
-                    bi.passowrd.requestFocus();
-                    Toast.makeText(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this, mEmail + " " + mPassword, Toast.LENGTH_SHORT).show();
-                    showProgress(false);
+                if (MainApp.user == null) {
+                    MainApp.user = new Users(mEmail, MainApp.DIST_ID);
                 }
+
+                MainApp.admin = mEmail.contains("@");
+                Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(iLogin);
             } else {
+                bi.password.setError(getString(R.string.error_incorrect_password));
+                bi.password.requestFocus();
+                Toast.makeText(LoginActivity.this, mEmail + " " + mPassword, Toast.LENGTH_SHORT).show();
+            }
+
+            /*          } else {
                 showProgress(false);
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this);
@@ -215,14 +225,26 @@ public class LoginActivity extends AppCompatActivity {
                         });
                 AlertDialog alert = alertDialogBuilder.create();
                 alert.show();
-            }
-        }
-
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
+            }*/
         }
     }
+
+ /*   public void onShowPasswordClick(View view) {
+        //TODO implement
+        if (bi.password.getTransformationMethod() == null) {
+            bi.password.setTransformationMethod(new PasswordTransformationMethod());
+            bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_black_24dp, 0, 0, 0);
+        } else {
+            bi.password.setTransformationMethod(null);
+            bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp, 0, 0, 0);
+        }
+    }*/
+
+
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() >= 7;
+    }
+
+
 }

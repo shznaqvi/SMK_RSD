@@ -16,14 +16,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import edu.aku.hassannaqvi.smk_rsd.CONSTANTS
 import edu.aku.hassannaqvi.smk_rsd.R
+import edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME
 import edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.DATABASE_COPY
 import edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.DATABASE_NAME
-import edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.PROJECT_NAME
-import edu.aku.hassannaqvi.smk_rsd.databinding.EndSectionDialogBinding
+
 import edu.aku.hassannaqvi.smk_rsd.ui.EndingActivity
-import edu.aku.hassannaqvi.smk_rsd.utils.extension.gotoActivityWithSerializable
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -81,7 +79,7 @@ fun dbBackup(context: Context) {
 
 }
 
-fun AppCompatActivity.openSectionEndingActivity() {
+/*fun AppCompatActivity.openSectionEndingActivity() {
     val dialog = Dialog(this)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setContentView(R.layout.item_dialog_2)
@@ -206,7 +204,7 @@ fun AppCompatActivity.openWarningDialog(title: String, response: Int, message: S
     bi.btnNo.setOnClickListener {
         dialog.dismiss()
     }
-}
+}*/
 
 interface EndSectionActivity {
     fun endSecActivity(flag: Boolean)

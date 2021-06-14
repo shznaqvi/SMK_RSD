@@ -47,6 +47,9 @@ public class MainApp extends Application {
     public static List<JSONArray> uploadData;
     public static int fmCount;
     public static String fmPosition;
+    public static Integer versionCode;
+    public static String versionName;
+    public static String userName;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
     public static int[] randHHNo;
