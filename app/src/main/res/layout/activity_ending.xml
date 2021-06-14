@@ -64,12 +64,12 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_io001" />
+                                android:text="@string/Q_status" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/io001" />
+                                android:text="@string/status" />
 
                         </LinearLayout>
 
@@ -82,21 +82,21 @@
                                 style="@style/sub_labels"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/io001hint" />
+                                android:text="TODO" />
 
                             <RadioButton
                                 android:id="@+id/istatusa"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/io001a" />
+                                android:text="@string/statusa" />
 
                             <RadioButton
                                 android:id="@+id/istatusb"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/io001b" />
+                                android:text="@string/statusb" />
 
-                            <RadioButton
+                            <!--<RadioButton
                                 android:id="@+id/istatusc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                                 android:id="@+id/istatuse"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/io001e" />
+                                android:text="@string/io001e" />-->
 
                         </RadioGroup>
 

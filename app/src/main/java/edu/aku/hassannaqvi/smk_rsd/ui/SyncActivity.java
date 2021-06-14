@@ -43,25 +43,19 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.smk_rsd.CONSTANTS;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.smk_rsd.contracts.MHContract;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
+import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
+import edu.aku.hassannaqvi.smk_rsd.data.model.SyncModel;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySyncBinding;
-import edu.aku.hassannaqvi.smk_rsd.models.BLRandom;
-import edu.aku.hassannaqvi.smk_rsd.models.Camps;
-import edu.aku.hassannaqvi.smk_rsd.models.Clusters;
-import edu.aku.hassannaqvi.smk_rsd.models.Districts;
-import edu.aku.hassannaqvi.smk_rsd.models.Doctor;
-import edu.aku.hassannaqvi.smk_rsd.models.SyncModel;
-import edu.aku.hassannaqvi.smk_rsd.models.UCs;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import edu.aku.hassannaqvi.smk_rsd.models.VersionApp;
 import edu.aku.hassannaqvi.smk_rsd.workers.DataDownWorkerALL;
 import edu.aku.hassannaqvi.smk_rsd.workers.DataUpWorkerALL;
 import edu.aku.hassannaqvi.smk_rsd.workers.PhotoUploadWorker2;
 
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.sdDir;
-import static edu.aku.hassannaqvi.smk_rsd.database.CreateTable.PROJECT_NAME;
 import static edu.aku.hassannaqvi.smk_rsd.utils.AndroidUtilityKt.isNetworkConnected;
 import static edu.aku.hassannaqvi.smk_rsd.utils.AppUtilsKt.dbBackup;
 
@@ -143,8 +137,8 @@ public class SyncActivity extends AppCompatActivity {
                 MainApp.uploadData.clear();
 
                 // MobileHealth
-                uploadTables.add(new SyncModel(MHContract.MHTable.TABLE_NAME));
-                MainApp.uploadData.add(db.getUnsyncedMH());
+                uploadTables.add(new SyncModel(Form.FormsTable.TABLE_NAME));
+                MainApp.uploadData.add(db.getUnsyncedForms());
                 setAdapter(uploadTables);
                 BeginUpload();
                 break;
@@ -166,8 +160,8 @@ public class SyncActivity extends AppCompatActivity {
 
                     String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
-                    downloadTables.add(new SyncModel(Camps.TableCamp.TABLE_NAME, select, filter));
-                    downloadTables.add(new SyncModel(Doctor.TableDoctor.TABLE_NAME));
+                    /*downloadTables.add(new SyncModel(Camps.TableCamp.TABLE_NAME, select, filter));
+                    downloadTables.add(new SyncModel(Doctor.TableDoctor.TABLE_NAME));*/
                 }
                 MainApp.downloadData = new String[downloadTables.size()];
                 setAdapter(downloadTables);
@@ -250,7 +244,7 @@ public class SyncActivity extends AppCompatActivity {
                                             insertCount = db.syncVersionApp(new JSONObject(result));
                                             if (insertCount == 1) jsonArray.put("1");
                                             break;
-                                        case Camps.TableCamp.TABLE_NAME:
+                                        /*case Camps.TableCamp.TABLE_NAME:
                                             jsonArray = new JSONArray(result);
                                             insertCount = db.syncCamp(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
@@ -279,7 +273,7 @@ public class SyncActivity extends AppCompatActivity {
                                             jsonArray = new JSONArray(result);
                                             insertCount = db.syncBLRandom(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
-                                            break;
+                                            break;*/
 
                                     }
 

@@ -24,8 +24,8 @@ import java.util.Collection;
 import java.util.List;
 
 import edu.aku.hassannaqvi.smk_rsd.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.smk_rsd.data.model.SyncModel;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
-import edu.aku.hassannaqvi.smk_rsd.models.SyncModel;
 
 import static android.content.Context.MODE_PRIVATE;
 

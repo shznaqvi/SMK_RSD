@@ -25,6 +25,12 @@
     <string name="stockoutregisters_mainheading">Stock Out Registers: </string>
     <string name="btnSync">Download Data</string>
     <string name="btnUpload">Upload Data</string>
+    <string name="btnDownload">Download Data</string>
+
+    <string name="Q_status">status</string>
+    <string name="status"> Interview Status </string>
+    <string name="statusa"> Complete </string>
+    <string name="statusb"> Incomplete </string>
 
     <string name="splashText"> </string>
     <string name="splashText2">  </string>
