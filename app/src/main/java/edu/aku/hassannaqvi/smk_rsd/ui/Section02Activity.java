@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.smk_rsd.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ public class Section02Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section02);
+        setupSkips();
     }
 
 
@@ -26,14 +28,19 @@ public class Section02Activity extends AppCompatActivity {
     }
 
 
+    private boolean updateDB() {
+        return true;
+    }
+
+
     public void BtnContinue(View view) {
-        /*if (!formValidation()) return;
+        if (!formValidation()) return;
         saveDraft();
-        if (UpdateDB()) {
+        if (updateDB()) {
             Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
             finish();
-            gotoActivityWithPutExtra(this, SectionMobileHealth.class, "complete", true);
-        }*/
+            //gotoActivityWithPutExtra(this, SectionMobileHealth.class, "complete", true);
+        }
     }
 
 

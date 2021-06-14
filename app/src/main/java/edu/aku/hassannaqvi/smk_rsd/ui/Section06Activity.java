@@ -19,6 +19,7 @@ public class Section06Activity extends AppCompatActivity {
 
     }
 
+
     private boolean updateDB() {
         return true;
     }
