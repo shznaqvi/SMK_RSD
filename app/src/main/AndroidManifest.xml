@@ -3,6 +3,7 @@
     package="edu.aku.hassannaqvi.smk_rsd">
 
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,24 +11,74 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SMKRSD">
-        <activity android:name=".ui.Section08Activity" />
-        <activity android:name=".ui.Section07Activity" />
-        <activity android:name=".ui.Section06Activity" />
-        <activity android:name=".ui.Section05Activity" />
-        <activity android:name=".ui.Section04Activity" />
-        <activity android:name=".ui.Section03Activity" />
-        <activity android:name=".ui.Section01Activity" />
-        <activity android:name=".ui.Section02Activity" />
+
+
+        <activity
+            android:name=".ui.Section01Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section02Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section03Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section04Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section05Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section06Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section07Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
+
+        <activity
+            android:name=".ui.Section08Activity"
+            android:label="@string/hfinfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English" />
+
         <activity android:name=".MainActivity">
 
-            <!--
-                <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+
         </activity>
+
+
     </application>
 
 </manifest>

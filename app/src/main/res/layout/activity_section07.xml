@@ -77,7 +77,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/cfp01check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -141,36 +140,30 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/cfp02check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:tag="0">
-
-                        <CheckBox
-                            android:id="@+id/cfp02a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cfp02a" />
+                        android:orientation="horizontal">
 
                         <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/cfp02ax"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp02"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="@string/cfp02a"
+                            android:layout_weight="1"
+                            android:enabled='@{cfp0297.checked ? false : true}'
+                            android:gravity="center"
+                            android:hint="####"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:tag="cfp02a"
-                            android:text='@{cfp02a.checked ? cfp02ax.getText().toString() : ""}'
-                            android:visibility='@{cfp02a.checked? View.VISIBLE : View.GONE}'
+                            android:text='@{cfp0297.checked ? "" : cfp02.getText().toString()}'
                             app:maxValue="9999"
                             app:minValue="0"
                             app:type="range" />
 
                         <CheckBox
-                            android:id="@+id/cfp02b"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp0297"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:tag="-1"
                             android:text="@string/cfp02b" />
 
                     </LinearLayout>
@@ -210,36 +203,30 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/cfp03check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:tag="0">
-
-                        <CheckBox
-                            android:id="@+id/cfp03a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cfp03a" />
+                        android:orientation="horizontal">
 
                         <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/cfp03ax"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp03"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="@string/cfp03a"
+                            android:layout_weight="1"
+                            android:enabled='@{cfp0397.checked ? false : true}'
+                            android:gravity="center"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:tag="cfp03a"
-                            android:text='@{cfp03a.checked ? cfp03ax.getText().toString() : ""}'
-                            android:visibility='@{cfp03a.checked? View.VISIBLE : View.GONE}'
+                            android:hint="####"
+                            android:text='@{cfp0397.checked ? "" : cfp03.getText().toString()}'
                             app:maxValue="9999"
                             app:minValue="0"
                             app:type="range" />
 
                         <CheckBox
-                            android:id="@+id/cfp03b"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp0397"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:tag="-1"
                             android:text="@string/cfp03b" />
 
                     </LinearLayout>
@@ -247,6 +234,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
 

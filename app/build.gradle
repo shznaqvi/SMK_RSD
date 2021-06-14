@@ -112,9 +112,15 @@ dependencies {
     implementation 'com.github.AliAzaz:Edittext-Library:2.0.0'
     implementation 'com.github.AliAzaz:AndroidValidatorCrawler:1.0.3'
 
+    //Apache
+    api 'org.apache.commons:commons-lang3:3.12.0'
+
     // WorkManager
     def work_version = '2.5.0'
     implementation "androidx.work:work-runtime:$work_version"// WorkManager (Java only)
+
+    //GSON
+    implementation 'com.google.code.gson:gson:2.8.6'
 
 
 }

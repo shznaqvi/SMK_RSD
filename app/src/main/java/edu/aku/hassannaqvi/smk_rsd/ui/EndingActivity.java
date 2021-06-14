@@ -20,9 +20,7 @@ import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityEndingBinding;
 import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMobileHealth;
 
-import static edu.aku.hassannaqvi.smk_rsd.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
-import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.mobileHealth;
 
 
 public class EndingActivity extends AppCompatActivity {
@@ -39,7 +37,7 @@ public class EndingActivity extends AppCompatActivity {
         setSupportActionBar(bi.toolbar);
 
         boolean check = getIntent().getBooleanExtra("complete", false);
-        sectionMainCheck = getIntent().getIntExtra(SECTION_MAIN_CHECK_FOR_END, 0);
+        //sectionMainCheck = getIntent().getIntExtra(SECTION_MAIN_CHECK_FOR_END, 0);
 
         if (check) {
             bi.istatusa.setEnabled(true);
@@ -56,7 +54,7 @@ public class EndingActivity extends AppCompatActivity {
 
     private void saveDraft() {
 
-        form.setStatus(bi.istatusa.isChecked() ? "1"
+        form.setiStatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
                 : bi.istatusc.isChecked() ? "3"
                 : "-1");
@@ -78,7 +76,7 @@ public class EndingActivity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesMHColumn(MHContract.MHTable.COLUMN_STATUS, mobileHealth.getStatus());
+        int updcount = db.updatesMHColumn(MHContract.MHTable.COLUMN_STATUS, form.getiStatus());
         if (updcount > 0) {
             //int count = db.updateEnding();
             return updcount > 0;
