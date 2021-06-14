@@ -323,47 +323,45 @@
                             android:text="@string/Q_fpr05" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/fpr05" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/fpr05check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:tag="0">
-
-                        <CheckBox
-                            android:id="@+id/fpr05a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fpr05a" />
+                        android:orientation="horizontal">
 
                         <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/fpr05ax"
-                            android:layout_width="match_parent"
+                            android:id="@+id/fpr05"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="@string/fpr05a"
+                            android:layout_weight="1"
+                            android:enabled='@{fpr0597.checked ? false : true}'
+                            android:gravity="center"
+                            android:hint="####"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:tag="fpr05a"
-                            android:text='@{fpr05a.checked ? fpr05ax.getText().toString() : ""}'
-
-                            android:visibility='@{fpr05a.checked? View.VISIBLE : View.GONE}'
+                            android:text='@{fpr0597.checked ? "" : fpr05.getText().toString()}'
                             app:maxValue="9999"
+                            app:minValue="0"
                             app:type="range" />
 
                         <CheckBox
-                            android:id="@+id/fpr05b"
-                            android:layout_width="match_parent"
+                            android:id="@+id/fpr0597"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:tag="-1"
                             android:text="@string/fpr05b" />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- fpr06  CheckBox   -->
             <androidx.cardview.widget.CardView
