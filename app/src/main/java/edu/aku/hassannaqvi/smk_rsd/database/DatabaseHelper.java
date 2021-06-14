@@ -18,8 +18,7 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
-import edu.aku.hassannaqvi.smk_rsd.data.model.Form.*;
-
+import edu.aku.hassannaqvi.smk_rsd.data.model.Form.FormsTable;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import edu.aku.hassannaqvi.smk_rsd.models.Users.UsersTable;
 import edu.aku.hassannaqvi.smk_rsd.models.VersionApp;
@@ -90,18 +89,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_UID, form.getUid());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
+        values.put(FormsTable.COLUMN_DISTRICT_CODE, form.getDistrictCode());
+        values.put(FormsTable.COLUMN_DISTRICT_NAME, form.getDistrictName());
         values.put(FormsTable.COLUMN_HF_CODE, form.getHfCode());
         values.put(FormsTable.COLUMN_HF_NAME, form.getHfName());
-        values.put(FormsTable.COLUMN_TEHSIL_CODE, form.getTehsilCode());
-        values.put(FormsTable.COLUMN_TEHSIL_NAME, form.getTehsilName());
-        values.put(FormsTable.COLUMN_LHW_CODE, form.getLhwCode());
-        values.put(FormsTable.COLUMN_LHW_NAME, form.getLhwName());
-        values.put(FormsTable.COLUMN_KHANDAN_NUMBER, form.getKhandanNumber());
+        values.put(FormsTable.COLUMN_REPORTING_MONTH, form.getReportingMonth());
+        values.put(FormsTable.COLUMN_REPORTING_YEAR, form.getReportingYear());
         values.put(FormsTable.COLUMN_SA, form.getsA());
-        values.put(FormsTable.COLUMN_SB, form.getsB());
 
-        values.put(FormsTable.COLUMN_ISTATUS, form.getIStatus());
-        values.put(FormsTable.COLUMN_ISTATUS96x, form.getIStatus96x());
+        values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
+        values.put(FormsTable.COLUMN_ISTATUS96x, form.getiStatus96x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, form.getEndTime());
 
         values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
@@ -330,7 +327,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 */
 
-    public ArrayList<UCs> getUCsByDistricts(String dCode) {
+    /*public ArrayList<UCs> getUCsByDistricts(String dCode) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -366,7 +363,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allDC;
-    }
+    }*/
 
     public Form getFormByClusterHH(String distCode, String subAreaCode, String hh) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -375,8 +372,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         whereClause = FormsTable.COLUMN_HF_CODE + "=? AND " +
-                FormsTable.COLUMN_LHW_CODE + "=? AND " +
-                FormsTable.COLUMN_KHANDAN_NUMBER + "=? AND " +
+                FormsTable.COLUMN_HF_CODE + "=? AND " +
+                FormsTable.COLUMN_HF_NAME + "=? AND " +
                 FormsTable.COLUMN_SYNCED + " is null AND " +
                 FormsTable.COLUMN_ISTATUS + "=?";
 
@@ -472,9 +469,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Form.FormsTable.COLUMN_ISTATUS, MainApp.form.getIStatus());
+        values.put(Form.FormsTable.COLUMN_ISTATUS, MainApp.form.getiStatus());
         //values.put(Form.FormsTable.COLUMN_ISTATUS, MainApp.form.getHh26());
-        values.put(Form.FormsTable.COLUMN_ISTATUS96x, MainApp.form.getIStatus96x());
+        values.put(Form.FormsTable.COLUMN_ISTATUS96x, MainApp.form.getiStatus96x());
         values.put(Form.FormsTable.COLUMN_ENDINGDATETIME, MainApp.form.getEndTime());
 
         // Which row to update, based on the ID
@@ -491,7 +488,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /*
      * Download data functions
      * */
-    public int syncDistricts(JSONArray Districtslist) {
+    /*public int syncDistricts(JSONArray Districtslist) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Districts.TableDistricts.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -515,9 +512,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }
+    }*/
 
-    public int syncUCs(JSONArray ucList) {
+    /*public int syncUCs(JSONArray ucList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TableUCs.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -545,7 +542,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }
+    }*/
 
 
     public int syncVersionApp(JSONObject VersionList) {
@@ -606,7 +603,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Sync Tehsil
-    public int syncTehsil(JSONArray tehsilList) {
+    /*public int syncTehsil(JSONArray tehsilList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Tehsil.TableTehsil.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -634,10 +631,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }
+    }*/
 
     //    Sync RSDHF
-    public int syncRsdHF(JSONArray rsdHFList) {
+    /*public int syncRsdHF(JSONArray rsdHFList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(RsdHF.TablersdHF.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -667,7 +664,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }
+    }*/
 
 
     //get UnSyncedTables
@@ -748,8 +745,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_SYSDATE,
-                FormsTable.COLUMN_LHW_CODE,
-                FormsTable.COLUMN_KHANDAN_NUMBER,
+                FormsTable.COLUMN_HF_CODE,
+                FormsTable.COLUMN_HF_NAME,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SYNCED,
         };
@@ -775,9 +772,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setLhwCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_LHW_CODE)));
-                fc.setKhandanNumber(c.getString(c.getColumnIndex(FormsTable.COLUMN_KHANDAN_NUMBER)));
-                fc.setIStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                fc.setHfCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_CODE)));
+                fc.setHfName(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_NAME)));
+                fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }

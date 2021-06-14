@@ -2,7 +2,10 @@ package edu.aku.hassannaqvi.smk_rsd.database
 
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form
-import edu.aku.hassannaqvi.smk_rsd.models.*
+import edu.aku.hassannaqvi.smk_rsd.models.Districts
+import edu.aku.hassannaqvi.smk_rsd.models.RsdHF
+import edu.aku.hassannaqvi.smk_rsd.models.Users
+import edu.aku.hassannaqvi.smk_rsd.models.VersionApp
 
 object CreateSQL {
     const val DATABASE_NAME = "$PROJECT_NAME.db"
@@ -24,18 +27,14 @@ object CreateSQL {
             + Form.FormsTable.COLUMN_SYNCED + " TEXT,"
             + Form.FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + Form.FormsTable.COLUMN_APPVERSION + " TEXT,"
-            /*+ Form.FormsTable.COLUMN_HF_CODE + " TEXT,"
+            + Form.FormsTable.COLUMN_DISTRICT_CODE + " TEXT,"
+            + Form.FormsTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + Form.FormsTable.COLUMN_HF_CODE + " TEXT,"
             + Form.FormsTable.COLUMN_HF_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_TEHSIL_CODE + " TEXT,"
-            + Form.FormsTable.COLUMN_TEHSIL_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_LHW_CODE + " TEXT,"
-            + Form.FormsTable.COLUMN_LHW_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_KHANDAN_NUMBER + " TEXT,"
-            + Form.FormsTable.COLUMN_SA + " TEXT,"
-            + Form.FormsTable.COLUMN_SB + " TEXT"*/
+            + Form.FormsTable.COLUMN_REPORTING_MONTH + " TEXT,"
+            + Form.FormsTable.COLUMN_REPORTING_YEAR + " TEXT,"
+            + Form.FormsTable.COLUMN_SA + " TEXT"
             + " );")
-
-
 
 
 
