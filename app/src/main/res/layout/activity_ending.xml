@@ -10,7 +10,7 @@
 
         <variable
             name="form"
-            type="edu.aku.hassannaqvi.smk_rsd.models.Form" />
+            type="edu.aku.hassannaqvi.smk_rsd.data.model.Form" />
     </data>
 
 

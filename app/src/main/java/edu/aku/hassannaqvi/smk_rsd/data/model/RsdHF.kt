@@ -2,7 +2,6 @@ package edu.aku.hassannaqvi.smk_rsd.models
 
 import android.database.Cursor
 import android.provider.BaseColumns
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONException
 import org.json.JSONObject
 

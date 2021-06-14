@@ -1,12 +1,10 @@
 package edu.aku.hassannaqvi.smk_rsd.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import edu.aku.hassannaqvi.smk_rsd.R
-import edu.aku.hassannaqvi.smk_rsd.ui.login.LoginActivity
 
-..LoginActivity
-import edu.aku.hassannaqvi.smk_rsd.utils.extension.gotoActivity
 import kotlinx.coroutines.*
 
 /*
@@ -18,7 +16,6 @@ class SplashscreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
-        activityScope = launchSplashScope()
 
         /*
         * Show FullScreen
@@ -35,7 +32,8 @@ class SplashscreenActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if (activityScope.isActive.not())
-            launchSplashScope()
+            finish()
+        startActivity(Intent(this, LoginActivity::class.java).apply {})
     }
 
     override fun onDestroy() {
@@ -43,14 +41,4 @@ class SplashscreenActivity : AppCompatActivity() {
         activityScope.cancel()
     }
 
-    private fun launchSplashScope() =
-            CoroutineScope(Dispatchers.Main).launch {
-                delay(SPLASH_TIME_OUT.toLong())
-                finish()
-                gotoActivity(LoginActivity::class.java)
-            }
-
-    companion object {
-        private const val SPLASH_TIME_OUT = 1000
-    }
 }
