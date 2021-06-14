@@ -1578,38 +1578,117 @@ public class Form extends BaseObservable {
         JSONObject json = new JSONObject();
 
         try {
-            json.put("hh01", hh01)
-                    .put("hh01", hh01)
-                    .put("hh0201", hh0201)
-                    .put("hh0202", hh0202)
-                    .put("hh03", hh03)
-                    .put("hh04", hh04)
-                    .put("hh05", hh05)
-                    .put("hh06", hh06)
-                    .put("hh07", hh07)
-                    .put("hh08", hh08)
-                    .put("hh09", hh09)
-                    .put("hh10", hh10)
-                    .put("hh11", hh11)
-                    .put("hh12", hh12)
-                    .put("hh13", hh13)
-                    .put("hh14", hh14)
-                    .put("hh15", hh15)
-                    .put("hh16", hh16)
-                    .put("hh17", hh17)
-                    .put("hh1796x", hh1796x)
-                    .put("hh18", hh18)
-                    .put("hh19", hh19)
-                    .put("hh20", hh20)
-                    .put("hh2096x", hh2096x)
-                    .put("hh21", hh21)
-                    .put("hh22", hh22)
-                    .put("hh23", hh23)
-                    .put("hh24", hh24)
-                    .put("hh25", hh25)
-                    .put("hh25a", hh25a)
-                    .put("hh26", hh26)
-                    .put("hh2696x", hh2696x);
+            json.put("mhr01", mhr01)
+                    .put("mhr0197", mhr0197)
+                    .put("mhr02", mhr02)
+                    .put("mhr0297", mhr0297)
+                    .put("mhr03", mhr03)
+                    .put("mhr0397", mhr0397)
+                    .put("mhr04", mhr04)
+                    .put("mhr0497", mhr0497)
+                    .put("mhr05", mhr05)
+                    .put("mhr0597", mhr0597)
+                    .put("epi01", epi01)
+                    .put("epi0197", epi0197)
+                    .put("shf01", shf01)
+                    .put("shf0197", shf0197)
+                    .put("shf02", shf02)
+                    .put("shf0297", shf0297)
+                    .put("obs01", obs01)
+                    .put("obs0197", obs0197)
+                    .put("obs02", obs02)
+                    .put("obs0297", obs0297)
+                    .put("obs03", obs03)
+                    .put("obs0397", obs0397)
+                    .put("obs04", obs04)
+                    .put("obs0497", obs0497)
+                    .put("obs05", obs05)
+                    .put("obs0597", obs0597)
+                    .put("obs06", obs06)
+                    .put("obs0697", obs0697)
+                    .put("obs07", obs07)
+                    .put("obs0797", obs0797)
+                    .put("obs08", obs08)
+                    .put("obs0897", obs0897)
+                    .put("obs09", obs09)
+                    .put("obs0997", obs0997)
+                    .put("obs10", obs10)
+                    .put("obs1097", obs1097)
+                    .put("obs11", obs11)
+                    .put("obs1197", obs1197)
+                    .put("obs12", obs12)
+                    .put("obs1297", obs1297)
+                    .put("obs13", obs13)
+                    .put("obs1397", obs1397)
+                    .put("obs14", obs14)
+                    .put("obs1497", obs1497)
+                    .put("obs15", obs15)
+                    .put("obs1597", obs1597)
+                    .put("obs16", obs16)
+                    .put("obs1697", obs1697)
+                    .put("obs17", obs17)
+                    .put("obs1797", obs1797)
+                    .put("obs18", obs18)
+                    .put("obs1897", obs1897)
+                    .put("obs19", obs19)
+                    .put("obs1997", obs1997)
+                    .put("obs20", obs20)
+                    .put("obs2097", obs2097)
+                    .put("fpr01", fpr01)
+                    .put("fpr0197", fpr0197)
+                    .put("fpr02", fpr02)
+                    .put("fpr0297", fpr0297)
+                    .put("fpr03", fpr03)
+                    .put("fpr0397", fpr0397)
+                    .put("fpr04", fpr04)
+                    .put("fpr0497", fpr0497)
+                    .put("fpr05", fpr05)
+                    .put("fpr0597", fpr0597)
+                    .put("fpr06", fpr06)
+                    .put("fpr0697", fpr0697)
+                    .put("fpr07", fpr07)
+                    .put("fpr0797", fpr0797)
+                    .put("fpr08", fpr08)
+                    .put("fpr0897", fpr0897)
+                    .put("fpr09", fpr09)
+                    .put("fpr0997", fpr0997)
+                    .put("fpr10", fpr10)
+                    .put("fpr1097", fpr1097)
+                    .put("fpr11", fpr11)
+                    .put("fpr1197", fpr1197)
+                    .put("cfp01", cfp01)
+                    .put("cfp0197", cfp0197)
+                    .put("cfp02", cfp02)
+                    .put("cfp0297", cfp0297)
+                    .put("cfp03", cfp03)
+                    .put("cfp0397", cfp0397)
+                    .put("str01s", str01s)
+                    .put("str01d", str01d)
+                    .put("str01m", str01m)
+                    .put("str02s", str02s)
+                    .put("str02d", str02d)
+                    .put("str02m", str02m)
+                    .put("str03s", str03s)
+                    .put("str03d", str03d)
+                    .put("str03m", str03m)
+                    .put("str04s", str04s)
+                    .put("str04d", str04d)
+                    .put("str04m", str04m)
+                    .put("str05s", str05s)
+                    .put("str05d", str05d)
+                    .put("str05m", str05m)
+                    .put("str06s", str06s)
+                    .put("str06d", str06d)
+                    .put("str06m", str06m)
+                    .put("str07s", str07s)
+                    .put("str07d", str07d)
+                    .put("str07m", str07m)
+                    .put("str08s", str08s)
+                    .put("str08d", str08d)
+                    .put("str08m", str08m)
+                    .put("str09s", str09s)
+                    .put("str09d", str09d)
+                    .put("str09m", str09m);
         } catch (JSONException e) {
             e.printStackTrace();
             return "\"error\":, \"" + e.getMessage() + "\"";
@@ -1664,37 +1743,117 @@ public class Form extends BaseObservable {
             try {
                 JSONObject json = null;
                 json = new JSONObject(string);
-                this.hh01 = json.getString("hh01");
-                this.hh0201 = json.getString("hh0201");
-                this.hh0202 = json.getString("hh0202");
-                this.hh03 = json.getString("hh03");
-                this.hh04 = json.getString("hh04");
-                this.hh05 = json.getString("hh05");
-                this.hh06 = json.getString("hh06");
-                this.hh07 = json.getString("hh07");
-                this.hh08 = json.getString("hh08");
-                this.hh09 = json.getString("hh09");
-                this.hh10 = json.getString("hh10");
-                this.hh11 = json.getString("hh11");
-                this.hh12 = json.getString("hh12");
-                this.hh13 = json.getString("hh13");
-                this.hh14 = json.getString("hh14");
-                this.hh15 = json.getString("hh15");
-                this.hh16 = json.getString("hh16");
-                this.hh17 = json.getString("hh17");
-                this.hh1796x = json.getString("hh1796x");
-                this.hh18 = json.getString("hh18");
-                this.hh19 = json.getString("hh19");
-                this.hh20 = json.getString("hh20");
-                this.hh2096x = json.getString("hh2096x");
-                this.hh21 = json.getString("hh21");
-                this.hh22 = json.getString("hh22");
-                this.hh23 = json.getString("hh23");
-                this.hh24 = json.getString("hh24");
-                this.hh25 = json.getString("hh25");
-                this.hh25a = json.getString("hh25a");
-                this.hh26 = json.getString("hh26");
-                this.hh2696x = json.getString("hh2696x");
+                this.mhr01 = json.getString("mhr01");
+                this.mhr0197 = json.getString("mhr0197");
+                this.mhr02 = json.getString("mhr02");
+                this.mhr0297 = json.getString("mhr0297");
+                this.mhr03 = json.getString("mhr03");
+                this.mhr0397 = json.getString("mhr0397");
+                this.mhr04 = json.getString("mhr04");
+                this.mhr0497 = json.getString("mhr0497");
+                this.mhr05 = json.getString("mhr05");
+                this.mhr0597 = json.getString("mhr0597");
+                this.epi01 = json.getString("epi01");
+                this.epi0197 = json.getString("epi0197");
+                this.shf01 = json.getString("shf01");
+                this.shf0197 = json.getString("shf0197");
+                this.shf02 = json.getString("shf02");
+                this.shf0297 = json.getString("shf0297");
+                this.obs01 = json.getString("obs01");
+                this.obs0197 = json.getString("obs0197");
+                this.obs02 = json.getString("obs02");
+                this.obs0297 = json.getString("obs0297");
+                this.obs03 = json.getString("obs03");
+                this.obs0397 = json.getString("obs0397");
+                this.obs04 = json.getString("obs04");
+                this.obs0497 = json.getString("obs0497");
+                this.obs05 = json.getString("obs05");
+                this.obs0597 = json.getString("obs0597");
+                this.obs06 = json.getString("obs06");
+                this.obs0697 = json.getString("obs0697");
+                this.obs07 = json.getString("obs07");
+                this.obs0797 = json.getString("obs0797");
+                this.obs08 = json.getString("obs08");
+                this.obs0897 = json.getString("obs0897");
+                this.obs09 = json.getString("obs09");
+                this.obs0997 = json.getString("obs0997");
+                this.obs10 = json.getString("obs10");
+                this.obs1097 = json.getString("obs1097");
+                this.obs11 = json.getString("obs11");
+                this.obs1197 = json.getString("obs1197");
+                this.obs12 = json.getString("obs12");
+                this.obs1297 = json.getString("obs1297");
+                this.obs13 = json.getString("obs13");
+                this.obs1397 = json.getString("obs1397");
+                this.obs14 = json.getString("obs14");
+                this.obs1497 = json.getString("obs1497");
+                this.obs15 = json.getString("obs15");
+                this.obs1597 = json.getString("obs1597");
+                this.obs16 = json.getString("obs16");
+                this.obs1697 = json.getString("obs1697");
+                this.obs17 = json.getString("obs17");
+                this.obs1797 = json.getString("obs1797");
+                this.obs18 = json.getString("obs18");
+                this.obs1897 = json.getString("obs1897");
+                this.obs19 = json.getString("obs19");
+                this.obs1997 = json.getString("obs1997");
+                this.obs20 = json.getString("obs20");
+                this.obs2097 = json.getString("obs2097");
+                this.fpr01 = json.getString("fpr01");
+                this.fpr0197 = json.getString("fpr0197");
+                this.fpr02 = json.getString("fpr02");
+                this.fpr0297 = json.getString("fpr0297");
+                this.fpr03 = json.getString("fpr03");
+                this.fpr0397 = json.getString("fpr0397");
+                this.fpr04 = json.getString("fpr04");
+                this.fpr0497 = json.getString("fpr0497");
+                this.fpr05 = json.getString("fpr05");
+                this.fpr0597 = json.getString("fpr0597");
+                this.fpr06 = json.getString("fpr06");
+                this.fpr0697 = json.getString("fpr0697");
+                this.fpr07 = json.getString("fpr07");
+                this.fpr0797 = json.getString("fpr0797");
+                this.fpr08 = json.getString("fpr08");
+                this.fpr0897 = json.getString("fpr0897");
+                this.fpr09 = json.getString("fpr09");
+                this.fpr0997 = json.getString("fpr0997");
+                this.fpr10 = json.getString("fpr10");
+                this.fpr1097 = json.getString("fpr1097");
+                this.fpr11 = json.getString("fpr11");
+                this.fpr1197 = json.getString("fpr1197");
+                this.cfp01 = json.getString("cfp01");
+                this.cfp0197 = json.getString("cfp0197");
+                this.cfp02 = json.getString("cfp02");
+                this.cfp0297 = json.getString("cfp0297");
+                this.cfp03 = json.getString("cfp03");
+                this.cfp0397 = json.getString("cfp0397");
+                this.str01s = json.getString("str01s");
+                this.str01d = json.getString("str01d");
+                this.str01m = json.getString("str01m");
+                this.str02s = json.getString("str02s");
+                this.str02d = json.getString("str02d");
+                this.str02m = json.getString("str02m");
+                this.str03s = json.getString("str03s");
+                this.str03d = json.getString("str03d");
+                this.str03m = json.getString("str03m");
+                this.str04s = json.getString("str04s");
+                this.str04d = json.getString("str04d");
+                this.str04m = json.getString("str04m");
+                this.str05s = json.getString("str05s");
+                this.str05d = json.getString("str05d");
+                this.str05m = json.getString("str05m");
+                this.str06s = json.getString("str06s");
+                this.str06d = json.getString("str06d");
+                this.str06m = json.getString("str06m");
+                this.str07s = json.getString("str07s");
+                this.str07d = json.getString("str07d");
+                this.str07m = json.getString("str07m");
+                this.str08s = json.getString("str08s");
+                this.str08d = json.getString("str08d");
+                this.str08m = json.getString("str08m");
+                this.str09s = json.getString("str09s");
+                this.str09d = json.getString("str09d");
+                this.str09m = json.getString("str09m");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
