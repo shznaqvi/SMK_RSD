@@ -43,7 +43,7 @@
 
         <activity
             android:name=".ui.Section05Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secfour"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 

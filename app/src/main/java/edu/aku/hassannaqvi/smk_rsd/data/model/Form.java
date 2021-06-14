@@ -71,85 +71,45 @@ public class Form extends BaseObservable {
     private String shf02 = StringUtils.EMPTY;
     private String shf0297 = StringUtils.EMPTY;
     private String obs01 = StringUtils.EMPTY;
-    private String obs01a = StringUtils.EMPTY;
-    private String obs01ax = StringUtils.EMPTY;
-    private String obs01b = StringUtils.EMPTY;
+    private String obs0197 = StringUtils.EMPTY;
     private String obs02 = StringUtils.EMPTY;
-    private String obs02a = StringUtils.EMPTY;
-    private String obs02ax = StringUtils.EMPTY;
-    private String obs02b = StringUtils.EMPTY;
+    private String obs0297 = StringUtils.EMPTY;
     private String obs03 = StringUtils.EMPTY;
-    private String obs03a = StringUtils.EMPTY;
-    private String obs03ax = StringUtils.EMPTY;
-    private String obs03b = StringUtils.EMPTY;
+    private String obs0397 = StringUtils.EMPTY;
     private String obs04 = StringUtils.EMPTY;
-    private String obs04a = StringUtils.EMPTY;
-    private String obs04ax = StringUtils.EMPTY;
-    private String obs04b = StringUtils.EMPTY;
+    private String obs0497 = StringUtils.EMPTY;
     private String obs05 = StringUtils.EMPTY;
-    private String obs05a = StringUtils.EMPTY;
-    private String obs05ax = StringUtils.EMPTY;
-    private String obs05b = StringUtils.EMPTY;
+    private String obs0597 = StringUtils.EMPTY;
     private String obs06 = StringUtils.EMPTY;
-    private String obs06a = StringUtils.EMPTY;
-    private String obs06ax = StringUtils.EMPTY;
-    private String obs06b = StringUtils.EMPTY;
+    private String obs0697 = StringUtils.EMPTY;
     private String obs07 = StringUtils.EMPTY;
-    private String obs07a = StringUtils.EMPTY;
-    private String obs07ax = StringUtils.EMPTY;
-    private String obs07b = StringUtils.EMPTY;
+    private String obs0797 = StringUtils.EMPTY;
     private String obs08 = StringUtils.EMPTY;
-    private String obs08a = StringUtils.EMPTY;
-    private String obs08ax = StringUtils.EMPTY;
-    private String obs08b = StringUtils.EMPTY;
+    private String obs0897 = StringUtils.EMPTY;
     private String obs09 = StringUtils.EMPTY;
-    private String obs09a = StringUtils.EMPTY;
-    private String obs09ax = StringUtils.EMPTY;
-    private String obs09b = StringUtils.EMPTY;
+    private String obs0997 = StringUtils.EMPTY;
     private String obs10 = StringUtils.EMPTY;
-    private String obs10a = StringUtils.EMPTY;
-    private String obs10ax = StringUtils.EMPTY;
-    private String obs10b = StringUtils.EMPTY;
+    private String obs1097 = StringUtils.EMPTY;
     private String obs11 = StringUtils.EMPTY;
-    private String obs11a = StringUtils.EMPTY;
-    private String obs11ax = StringUtils.EMPTY;
-    private String obs11b = StringUtils.EMPTY;
+    private String obs1197 = StringUtils.EMPTY;
     private String obs12 = StringUtils.EMPTY;
-    private String obs12a = StringUtils.EMPTY;
-    private String obs12ax = StringUtils.EMPTY;
-    private String obs12b = StringUtils.EMPTY;
+    private String obs1297 = StringUtils.EMPTY;
     private String obs13 = StringUtils.EMPTY;
-    private String obs13a = StringUtils.EMPTY;
-    private String obs13ax = StringUtils.EMPTY;
-    private String obs13b = StringUtils.EMPTY;
+    private String obs1397 = StringUtils.EMPTY;
     private String obs14 = StringUtils.EMPTY;
-    private String obs14a = StringUtils.EMPTY;
-    private String obs14ax = StringUtils.EMPTY;
-    private String obs14b = StringUtils.EMPTY;
+    private String obs1497 = StringUtils.EMPTY;
     private String obs15 = StringUtils.EMPTY;
-    private String obs15a = StringUtils.EMPTY;
-    private String obs15ax = StringUtils.EMPTY;
-    private String obs15b = StringUtils.EMPTY;
+    private String obs1597 = StringUtils.EMPTY;
     private String obs16 = StringUtils.EMPTY;
-    private String obs16a = StringUtils.EMPTY;
-    private String obs16ax = StringUtils.EMPTY;
-    private String obs16b = StringUtils.EMPTY;
+    private String obs1697 = StringUtils.EMPTY;
     private String obs17 = StringUtils.EMPTY;
-    private String obs17a = StringUtils.EMPTY;
-    private String obs17ax = StringUtils.EMPTY;
-    private String obs17b = StringUtils.EMPTY;
+    private String obs1797 = StringUtils.EMPTY;
     private String obs18 = StringUtils.EMPTY;
-    private String obs18a = StringUtils.EMPTY;
-    private String obs18ax = StringUtils.EMPTY;
-    private String obs18b = StringUtils.EMPTY;
+    private String obs1897 = StringUtils.EMPTY;
     private String obs19 = StringUtils.EMPTY;
-    private String obs19a = StringUtils.EMPTY;
-    private String obs19ax = StringUtils.EMPTY;
-    private String obs19b = StringUtils.EMPTY;
+    private String obs1997 = StringUtils.EMPTY;
     private String obs20 = StringUtils.EMPTY;
-    private String obs20a = StringUtils.EMPTY;
-    private String obs20ax = StringUtils.EMPTY;
-    private String obs20b = StringUtils.EMPTY;
+    private String obs2097 = StringUtils.EMPTY;
     private String fpr01 = StringUtils.EMPTY;
     private String fpr0197 = StringUtils.EMPTY;
     private String fpr02 = StringUtils.EMPTY;
@@ -805,12 +765,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs01b() {
-        return obs01b;
+    public String getObs0197() {
+        return obs0197;
     }
 
-    public void setObs01b(String obs01b) {
-        this.obs01b = obs01b;
+    public void setObs0197(String obs0197) {
+        this.obs0197 = obs0197;
         notifyPropertyChanged(BR.obs01b);
     }
 
@@ -845,12 +805,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs02b() {
-        return obs02b;
+    public String getObs0297() {
+        return obs0297;
     }
 
-    public void setObs02b(String obs02b) {
-        this.obs02b = obs02b;
+    public void setObs0297(String obs0297) {
+        this.obs0297 = obs0297;
         notifyPropertyChanged(BR.obs02b);
     }
 
@@ -885,12 +845,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs03b() {
-        return obs03b;
+    public String getObs0397() {
+        return obs0397;
     }
 
-    public void setObs03b(String obs03b) {
-        this.obs03b = obs03b;
+    public void setObs0397(String obs0397) {
+        this.obs0397 = obs0397;
         notifyPropertyChanged(BR.obs03b);
     }
 
@@ -925,12 +885,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs04b() {
-        return obs04b;
+    public String getObs0497() {
+        return obs0497;
     }
 
-    public void setObs04b(String obs04b) {
-        this.obs04b = obs04b;
+    public void setObs0497(String obs0497) {
+        this.obs0497 = obs0497;
         notifyPropertyChanged(BR.obs04b);
     }
 
@@ -965,12 +925,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs05b() {
-        return obs05b;
+    public String getObs0597() {
+        return obs0597;
     }
 
-    public void setObs05b(String obs05b) {
-        this.obs05b = obs05b;
+    public void setObs0597(String obs0597) {
+        this.obs0597 = obs0597;
         notifyPropertyChanged(BR.obs05b);
     }
 
@@ -1005,12 +965,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs06b() {
-        return obs06b;
+    public String getObs0697() {
+        return obs0697;
     }
 
-    public void setObs06b(String obs06b) {
-        this.obs06b = obs06b;
+    public void setObs0697(String obs0697) {
+        this.obs0697 = obs0697;
         notifyPropertyChanged(BR.obs06b);
     }
 
@@ -1045,12 +1005,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs07b() {
-        return obs07b;
+    public String getObs0797() {
+        return obs0797;
     }
 
-    public void setObs07b(String obs07b) {
-        this.obs07b = obs07b;
+    public void setObs0797(String obs0797) {
+        this.obs0797 = obs0797;
         notifyPropertyChanged(BR.obs07b);
     }
 
@@ -1085,12 +1045,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs08b() {
-        return obs08b;
+    public String getObs0897() {
+        return obs0897;
     }
 
-    public void setObs08b(String obs08b) {
-        this.obs08b = obs08b;
+    public void setObs0897(String obs0897) {
+        this.obs0897 = obs0897;
         notifyPropertyChanged(BR.obs08b);
     }
 
@@ -1125,12 +1085,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs09b() {
-        return obs09b;
+    public String getObs0997() {
+        return obs0997;
     }
 
-    public void setObs09b(String obs09b) {
-        this.obs09b = obs09b;
+    public void setObs0997(String obs0997) {
+        this.obs0997 = obs0997;
         notifyPropertyChanged(BR.obs09b);
     }
 
@@ -1165,12 +1125,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs10b() {
-        return obs10b;
+    public String getObs1097() {
+        return obs1097;
     }
 
-    public void setObs10b(String obs10b) {
-        this.obs10b = obs10b;
+    public void setObs1097(String obs1097) {
+        this.obs1097 = obs1097;
         notifyPropertyChanged(BR.obs10b);
     }
 
@@ -1205,12 +1165,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs11b() {
-        return obs11b;
+    public String getObs1197() {
+        return obs1197;
     }
 
-    public void setObs11b(String obs11b) {
-        this.obs11b = obs11b;
+    public void setObs1197(String obs1197) {
+        this.obs1197 = obs1197;
         notifyPropertyChanged(BR.obs11b);
     }
 
@@ -1245,12 +1205,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs12b() {
-        return obs12b;
+    public String getObs1297() {
+        return obs1297;
     }
 
-    public void setObs12b(String obs12b) {
-        this.obs12b = obs12b;
+    public void setObs1297(String obs1297) {
+        this.obs1297 = obs1297;
         notifyPropertyChanged(BR.obs12b);
     }
 
@@ -1285,12 +1245,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs13b() {
-        return obs13b;
+    public String getObs1397() {
+        return obs1397;
     }
 
-    public void setObs13b(String obs13b) {
-        this.obs13b = obs13b;
+    public void setObs1397(String obs1397) {
+        this.obs1397 = obs1397;
         notifyPropertyChanged(BR.obs13b);
     }
 
@@ -1325,12 +1285,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs14b() {
-        return obs14b;
+    public String getObs1497() {
+        return obs1497;
     }
 
-    public void setObs14b(String obs14b) {
-        this.obs14b = obs14b;
+    public void setObs1497(String obs1497) {
+        this.obs1497 = obs1497;
         notifyPropertyChanged(BR.obs14b);
     }
 
@@ -1365,12 +1325,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs15b() {
-        return obs15b;
+    public String getObs1597() {
+        return obs1597;
     }
 
-    public void setObs15b(String obs15b) {
-        this.obs15b = obs15b;
+    public void setObs1597(String obs1597) {
+        this.obs1597 = obs1597;
         notifyPropertyChanged(BR.obs15b);
     }
 
@@ -1405,12 +1365,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs16b() {
-        return obs16b;
+    public String getObs1697() {
+        return obs1697;
     }
 
-    public void setObs16b(String obs16b) {
-        this.obs16b = obs16b;
+    public void setObs1697(String obs1697) {
+        this.obs1697 = obs1697;
         notifyPropertyChanged(BR.obs16b);
     }
 
@@ -1445,12 +1405,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs17b() {
-        return obs17b;
+    public String getObs1797() {
+        return obs1797;
     }
 
-    public void setObs17b(String obs17b) {
-        this.obs17b = obs17b;
+    public void setObs1797(String obs1797) {
+        this.obs1797 = obs1797;
         notifyPropertyChanged(BR.obs17b);
     }
 
@@ -1485,12 +1445,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs18b() {
-        return obs18b;
+    public String getObs1897() {
+        return obs1897;
     }
 
-    public void setObs18b(String obs18b) {
-        this.obs18b = obs18b;
+    public void setObs1897(String obs1897) {
+        this.obs1897 = obs1897;
         notifyPropertyChanged(BR.obs18b);
     }
 
@@ -1525,12 +1485,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs19b() {
-        return obs19b;
+    public String getObs1997() {
+        return obs1997;
     }
 
-    public void setObs19b(String obs19b) {
-        this.obs19b = obs19b;
+    public void setObs1997(String obs1997) {
+        this.obs1997 = obs1997;
         notifyPropertyChanged(BR.obs19b);
     }
 
@@ -1565,12 +1525,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getObs20b() {
-        return obs20b;
+    public String getObs2097() {
+        return obs2097;
     }
 
-    public void setObs20b(String obs20b) {
-        this.obs20b = obs20b;
+    public void setObs2097(String obs2097) {
+        this.obs2097 = obs2097;
         notifyPropertyChanged(BR.obs20b);
     }
 
