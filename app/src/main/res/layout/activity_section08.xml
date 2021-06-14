@@ -68,9 +68,9 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- str01  Title   -->
+            <!-- str01s  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVstr01"
+                android:id="@+id/fldGrpCVstr01s"
                 style="@style/cardView">
 
                 <LinearLayout
@@ -81,22 +81,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/str01" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- str01s  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVstr01s"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -111,9 +97,8 @@
                             android:text="@string/Q_str01s" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/str01s" />
 
                     </LinearLayout>
@@ -121,18 +106,21 @@
                     <RadioGroup
                         android:id="@+id/str01s"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/str01y"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/str01y" />
 
                         <RadioButton
                             android:id="@+id/str01n"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/str01n" />
 
                     </RadioGroup>
@@ -183,8 +171,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
 
@@ -208,29 +197,17 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
-            <!-- str02  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVstr02"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str02" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
             <!-- str02s  Radio   -->
             <androidx.cardview.widget.CardView
@@ -241,6 +218,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/str02" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -255,10 +238,10 @@
                             android:text="@string/Q_str02s" />
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:text="@string/str02s" />
+
                     </LinearLayout>
 
                     <RadioGroup
@@ -277,9 +260,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/str02n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str02t  Title   -->
             <androidx.cardview.widget.CardView
@@ -321,8 +308,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -345,29 +333,17 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
-            <!-- str03  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVstr03"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str03" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
             <!-- str03s  Radio   -->
             <androidx.cardview.widget.CardView
@@ -378,6 +354,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/str03" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -396,6 +378,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:text="@string/str03s" />
+
                     </LinearLayout>
 
                     <RadioGroup
@@ -414,9 +397,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/str03n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str03t  Title   -->
             <androidx.cardview.widget.CardView
@@ -458,8 +445,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -482,12 +470,17 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str04  Title   -->
             <androidx.cardview.widget.CardView
@@ -595,8 +588,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -619,8 +613,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -732,8 +727,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -756,8 +752,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -869,8 +866,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -893,8 +891,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -944,6 +943,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:text="@string/str07s" />
+
                     </LinearLayout>
 
                     <RadioGroup
@@ -962,9 +962,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/str07n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str07t  Title   -->
             <androidx.cardview.widget.CardView
@@ -1006,8 +1010,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -1030,12 +1035,17 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str08  Title   -->
             <androidx.cardview.widget.CardView
@@ -1051,8 +1061,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/str08" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- str08s  Radio   -->
             <androidx.cardview.widget.CardView
@@ -1143,8 +1156,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -1167,8 +1181,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="23"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -1280,8 +1295,9 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="29"
-
+                                app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -1306,8 +1322,11 @@
                                 app:maxValue="23"
                                 app:minValue="0"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
