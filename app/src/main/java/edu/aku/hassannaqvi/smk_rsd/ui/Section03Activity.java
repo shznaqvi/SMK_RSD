@@ -12,6 +12,8 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection03Binding;
 
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
+
 
 public class Section03Activity extends AppCompatActivity {
     ActivitySection03Binding bi;
@@ -31,6 +33,9 @@ public class Section03Activity extends AppCompatActivity {
 
 
     private void saveDraft() {
+
+        form.setEpi01(bi.epi01.getText().toString().isEmpty() ? "-1" : bi.epi01.getText().toString());
+        form.setEpi0197(bi.epi0197.isChecked() ? "97" : "-1");
 
     }
 

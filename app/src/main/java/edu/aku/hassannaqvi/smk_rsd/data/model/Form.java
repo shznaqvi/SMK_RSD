@@ -65,9 +65,7 @@ public class Form extends BaseObservable {
     private String mhr05 = StringUtils.EMPTY;
     private String mhr0597 = StringUtils.EMPTY;
     private String epi01 = StringUtils.EMPTY;
-    private String epi01a = StringUtils.EMPTY;
-    private String epi01ax = StringUtils.EMPTY;
-    private String epi01b = StringUtils.EMPTY;
+    private String epi0197 = StringUtils.EMPTY;
     private String shf01 = StringUtils.EMPTY;
     private String shf01a = StringUtils.EMPTY;
     private String shf01ax = StringUtils.EMPTY;
@@ -691,12 +689,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getEpi01b() {
-        return epi01b;
+    public String getEpi0197() {
+        return epi0197;
     }
 
-    public void setEpi01b(String epi01b) {
-        this.epi01b = epi01b;
+    public void setEpi0197(String epi0197) {
+        this.epi0197 = epi0197;
         notifyPropertyChanged(BR.epi01b);
     }
 
