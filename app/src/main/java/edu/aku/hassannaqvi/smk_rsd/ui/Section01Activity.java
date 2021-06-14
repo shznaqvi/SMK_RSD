@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Validator;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -70,8 +72,7 @@ public class Section01Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        /*return Validator.emptyCheckingContainer(this, bi.GrpName);*/
-        return true;
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 

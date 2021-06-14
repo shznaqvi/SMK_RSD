@@ -5,15 +5,22 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.smk_rsd.R;
+import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection05Binding;
+
 
 public class Section05Activity extends AppCompatActivity {
+    ActivitySection05Binding bi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_section05);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section05);
         setupSkips();
     }
 
@@ -50,8 +57,7 @@ public class Section05Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        /*return Validator.emptyCheckingContainer(this, bi.GrpName);*/
-        return true;
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 

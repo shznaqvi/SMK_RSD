@@ -12,8 +12,10 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection02Binding;
 
+
 public class Section02Activity extends AppCompatActivity {
     ActivitySection02Binding bi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

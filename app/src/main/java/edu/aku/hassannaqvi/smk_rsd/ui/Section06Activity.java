@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Validator;
+
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection06Binding;
 
@@ -88,8 +90,7 @@ public class Section06Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        /*return Validator.emptyCheckingContainer(this, bi.GrpName);*/
-        return true;
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 
