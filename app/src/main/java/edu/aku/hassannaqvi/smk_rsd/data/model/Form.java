@@ -55,25 +55,15 @@ public class Form extends BaseObservable {
     private String sE = StringUtils.EMPTY;
     // FIELD VARIABLES
     private String mhr01 = StringUtils.EMPTY;
-    private String mhr01a = StringUtils.EMPTY;
-    private String mhr01ax = StringUtils.EMPTY;
-    private String mhr01b = StringUtils.EMPTY;
+    private String mhr0197 = StringUtils.EMPTY;
     private String mhr02 = StringUtils.EMPTY;
-    private String mhr02a = StringUtils.EMPTY;
-    private String mhr02ax = StringUtils.EMPTY;
-    private String mhr02b = StringUtils.EMPTY;
+    private String mhr0297 = StringUtils.EMPTY;
     private String mhr03 = StringUtils.EMPTY;
-    private String mhr03a = StringUtils.EMPTY;
-    private String mhr03ax = StringUtils.EMPTY;
-    private String mhr03b = StringUtils.EMPTY;
+    private String mhr0397 = StringUtils.EMPTY;
     private String mhr04 = StringUtils.EMPTY;
-    private String mhr04a = StringUtils.EMPTY;
-    private String mhr04ax = StringUtils.EMPTY;
-    private String mhr04b = StringUtils.EMPTY;
+    private String mhr0497 = StringUtils.EMPTY;
     private String mhr05 = StringUtils.EMPTY;
-    private String mhr05a = StringUtils.EMPTY;
-    private String mhr05ax = StringUtils.EMPTY;
-    private String mhr05b = StringUtils.EMPTY;
+    private String mhr0597 = StringUtils.EMPTY;
     private String epi01 = StringUtils.EMPTY;
     private String epi01a = StringUtils.EMPTY;
     private String epi01ax = StringUtils.EMPTY;
@@ -501,12 +491,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getMhr01b() {
-        return mhr01b;
+    public String getMhr0197() {
+        return mhr0197;
     }
 
-    public void setMhr01b(String mhr01b) {
-        this.mhr01b = mhr01b;
+    public void setMhr0197(String mhr0197) {
+        this.mhr0197 = mhr0197;
         notifyPropertyChanged(BR.mhr01b);
     }
 
@@ -541,12 +531,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getMhr02b() {
-        return mhr02b;
+    public String getMhr0297() {
+        return mhr0297;
     }
 
-    public void setMhr02b(String mhr02b) {
-        this.mhr02b = mhr02b;
+    public void setMhr0297(String mhr0297) {
+        this.mhr0297 = mhr0297;
         notifyPropertyChanged(BR.mhr02b);
     }
 
@@ -581,12 +571,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getMhr03b() {
-        return mhr03b;
+    public String getMhr0397() {
+        return mhr0397;
     }
 
-    public void setMhr03b(String mhr03b) {
-        this.mhr03b = mhr03b;
+    public void setMhr0397(String mhr0397) {
+        this.mhr0397 = mhr0397;
         notifyPropertyChanged(BR.mhr03b);
     }
 
@@ -621,12 +611,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getMhr04b() {
-        return mhr04b;
+    public String getMhr0497() {
+        return mhr0497;
     }
 
-    public void setMhr04b(String mhr04b) {
-        this.mhr04b = mhr04b;
+    public void setMhr0497(String mhr0497) {
+        this.mhr0497 = mhr0497;
         notifyPropertyChanged(BR.mhr04b);
     }
 
@@ -661,12 +651,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getMhr05b() {
-        return mhr05b;
+    public String getMhr0597() {
+        return mhr0597;
     }
 
-    public void setMhr05b(String mhr05b) {
-        this.mhr05b = mhr05b;
+    public void setMhr0597(String mhr0597) {
+        this.mhr0597 = mhr0597;
         notifyPropertyChanged(BR.mhr05b);
     }
 

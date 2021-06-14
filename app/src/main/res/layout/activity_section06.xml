@@ -28,26 +28,6 @@
             android:orientation="vertical">
 
 
-            <!-- secfive  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVsecfive"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/secfive" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
             <!-- fpr01  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVfpr01"

@@ -22,7 +22,7 @@
 
         <activity
             android:name=".ui.Section02Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secone"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
