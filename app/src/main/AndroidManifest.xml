@@ -50,21 +50,21 @@
 
         <activity
             android:name=".ui.Section06Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secfive"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
 
         <activity
             android:name=".ui.Section07Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
 
         <activity
             android:name=".ui.Section08Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secseven"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
