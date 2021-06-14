@@ -14,11 +14,10 @@ import java.util.Date;
 import java.util.Locale;
 
 import edu.aku.hassannaqvi.smk_rsd.R;
-import edu.aku.hassannaqvi.smk_rsd.contracts.MHContract;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
+import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityEndingBinding;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMobileHealth;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
@@ -68,7 +67,7 @@ public class EndingActivity extends AppCompatActivity {
         saveDraft();
         if (UpdateDB()) {
             finish();
-            gotoActivity(this, SectionMobileHealth.class);
+            //gotoActivity(this, MainActivity.class);
         } else {
             Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
         }
@@ -76,7 +75,7 @@ public class EndingActivity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesMHColumn(MHContract.MHTable.COLUMN_STATUS, form.getiStatus());
+        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_ISTATUS, form.getiStatus());
         if (updcount > 0) {
             //int count = db.updateEnding();
             return updcount > 0;
