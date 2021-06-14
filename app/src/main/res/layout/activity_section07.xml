@@ -1,5 +1,4 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -81,34 +80,28 @@
                         android:id="@+id/cfp01check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:tag="0"
-                        tools:ignore="MissingClass">
-
-                        <CheckBox
-                            android:id="@+id/cfp01a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cfp01a" />
+                        android:orientation="horizontal">
 
                         <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/cfp01ax"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp01"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="@string/cfp01a"
+                            android:layout_weight="1"
+                            android:enabled='@{cfp0197.checked ? false : true}'
+                            android:gravity="center"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:tag="cfp01a"
-                            android:text='@{cfp01a.checked ? cfp01ax.getText().toString() : ""}'
-                            android:visibility='@{cfp01a.checked? View.VISIBLE : View.GONE}'
+                            android:hint="####"
+                            android:text='@{cfp0197.checked ? "" : cfp01.getText().toString()}'
                             app:maxValue="9999"
                             app:minValue="0"
                             app:type="range" />
 
                         <CheckBox
-                            android:id="@+id/cfp01b"
-                            android:layout_width="match_parent"
+                            android:id="@+id/cfp0197"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:tag="-1"
                             android:text="@string/cfp01b" />
 
                     </LinearLayout>
