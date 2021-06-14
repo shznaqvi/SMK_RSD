@@ -13,4 +13,15 @@ public class Section06Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section06);
     }
+
+
+    void setupSkips() {
+
+    }
+
+    private boolean updateDB() {
+        return true;
+    }
+
+
 }
