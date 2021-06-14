@@ -36,7 +36,7 @@
 
         <activity
             android:name=".ui.Section04Activity"
-            android:label="@string/hfinfo"
+            android:label="@string/secthree"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 

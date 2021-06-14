@@ -12,6 +12,8 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection04Binding;
 
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
+
 public class Section04Activity extends AppCompatActivity {
     ActivitySection04Binding bi;
 
@@ -29,6 +31,12 @@ public class Section04Activity extends AppCompatActivity {
 
 
     private void saveDraft() {
+
+        form.setShf01(bi.shf01.getText().toString().isEmpty() ? "-1" : bi.shf01.getText().toString());
+        form.setShf0197(bi.shf0197.isChecked() ? "97" : "-1");
+
+        form.setShf02(bi.shf02.getText().toString().isEmpty() ? "-1" : bi.shf02.getText().toString());
+        form.setShf0297(bi.shf0297.isChecked() ? "97" : "-1");
 
     }
 

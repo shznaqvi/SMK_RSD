@@ -67,13 +67,9 @@ public class Form extends BaseObservable {
     private String epi01 = StringUtils.EMPTY;
     private String epi0197 = StringUtils.EMPTY;
     private String shf01 = StringUtils.EMPTY;
-    private String shf01a = StringUtils.EMPTY;
-    private String shf01ax = StringUtils.EMPTY;
-    private String shf01b = StringUtils.EMPTY;
+    private String shf0197 = StringUtils.EMPTY;
     private String shf02 = StringUtils.EMPTY;
-    private String shf02a = StringUtils.EMPTY;
-    private String shf02ax = StringUtils.EMPTY;
-    private String shf02b = StringUtils.EMPTY;
+    private String shf0297 = StringUtils.EMPTY;
     private String obs01 = StringUtils.EMPTY;
     private String obs01a = StringUtils.EMPTY;
     private String obs01ax = StringUtils.EMPTY;
@@ -729,12 +725,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getShf01b() {
-        return shf01b;
+    public String getShf0197() {
+        return shf0197;
     }
 
-    public void setShf01b(String shf01b) {
-        this.shf01b = shf01b;
+    public void setShf0197(String shf0197) {
+        this.shf0197 = shf0197;
         notifyPropertyChanged(BR.shf01b);
     }
 
@@ -769,12 +765,12 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getShf02b() {
-        return shf02b;
+    public String getShf0297() {
+        return shf0297;
     }
 
-    public void setShf02b(String shf02b) {
-        this.shf02b = shf02b;
+    public void setShf0297(String shf0297) {
+        this.shf0297 = shf0297;
         notifyPropertyChanged(BR.shf02b);
     }
 
