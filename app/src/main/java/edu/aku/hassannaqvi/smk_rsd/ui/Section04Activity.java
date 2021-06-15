@@ -25,6 +25,7 @@ public class Section04Activity extends AppCompatActivity {
     }
 
 
+
     private void setupSkips() {
 
     }
