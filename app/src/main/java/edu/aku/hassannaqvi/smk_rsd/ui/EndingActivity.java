@@ -41,11 +41,11 @@ public class EndingActivity extends AppCompatActivity {
         if (check) {
             bi.istatusa.setEnabled(true);
             bi.istatusb.setEnabled(false);
-            bi.istatusc.setEnabled(false);
+            /*bi.istatusc.setEnabled(false);*/
         } else {
             bi.istatusa.setEnabled(false);
             bi.istatusb.setEnabled(true);
-            bi.istatusc.setEnabled(true);
+            /*bi.istatusc.setEnabled(true);*/
             bi.btnEnd.setBackgroundColor(getResources().getColor(R.color.redLight));
         }
 
@@ -55,7 +55,7 @@ public class EndingActivity extends AppCompatActivity {
 
         form.setiStatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
-                : bi.istatusc.isChecked() ? "3"
+                /*: bi.istatusc.isChecked() ? "3"*/
                 : "-1");
         form.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
 
