@@ -122,5 +122,8 @@ dependencies {
     //GSON
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //Image Compressor
+    implementation 'id.zelory:compressor:2.1.0'
+
 
 }

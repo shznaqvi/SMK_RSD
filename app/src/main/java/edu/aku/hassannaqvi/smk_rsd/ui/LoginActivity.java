@@ -1,14 +1,8 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
@@ -17,16 +11,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 import edu.aku.hassannaqvi.smk_rsd.MainActivity;
 import edu.aku.hassannaqvi.smk_rsd.R;
@@ -34,9 +23,9 @@ import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityLoginBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
-import kotlin.annotation.Target;
 
 import static java.lang.Thread.sleep;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -229,7 +218,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
- /*   public void onShowPasswordClick(View view) {
+    public void onShowPasswordClick(View view) {
         //TODO implement
         if (bi.password.getTransformationMethod() == null) {
             bi.password.setTransformationMethod(new PasswordTransformationMethod());
@@ -238,7 +227,7 @@ public class LoginActivity extends AppCompatActivity {
             bi.password.setTransformationMethod(null);
             bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp, 0, 0, 0);
         }
-    }*/
+    }
 
 
     private boolean isPasswordValid(String password) {

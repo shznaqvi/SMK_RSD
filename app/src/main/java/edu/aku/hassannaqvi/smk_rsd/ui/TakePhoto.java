@@ -28,7 +28,8 @@ import java.util.List;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import id.zelory.compressor.Compressor;
 
-import static edu.aku.hassannaqvi.smk_rsd.database.CreateTable.PROJECT_NAME;
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
+
 
 public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camera.PictureCallback {
 

@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.smk_rsd.data.model;
 
+
 import android.database.Cursor;
 import android.provider.BaseColumns;
 
@@ -14,7 +15,6 @@ import org.json.JSONObject;
 
 import java.time.LocalDate;
 
-import edu.aku.hassannaqvi.smk_rsd.BR;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 
 

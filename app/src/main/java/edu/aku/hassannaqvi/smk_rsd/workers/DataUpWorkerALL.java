@@ -25,11 +25,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 
-import static edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.PROJECT_NAME;
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
 
 
 public class DataUpWorkerALL extends Worker {
