@@ -24,6 +24,7 @@ public class Section08Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section08);
         setupSkips();
+        setSupportActionBar(bi.toolbar);
     }
 
 
