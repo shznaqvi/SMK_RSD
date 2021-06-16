@@ -15,6 +15,8 @@ import edu.aku.hassannaqvi.smk_rsd.ui.Section06Activity;
 import edu.aku.hassannaqvi.smk_rsd.ui.Section07Activity;
 import edu.aku.hassannaqvi.smk_rsd.ui.Section08Activity;
 
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         OpenFormFunc(v.getId());
     }
 
+
     public void OpenFormFunc(int id) {
         Intent oF = null;
         switch (id) {
@@ -38,22 +41,28 @@ public class MainActivity extends AppCompatActivity {
                 oF = new Intent(this, Section02Activity.class);
                 break;
             case R.id.formC:
-                oF = new Intent(this, Section03Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section03Activity.class);
                 break;
             case R.id.formD:
-                oF = new Intent(this, Section04Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section04Activity.class);
                 break;
             case R.id.formE:
-                oF = new Intent(this, Section05Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section05Activity.class);
                 break;
             case R.id.formF:
-                oF = new Intent(this, Section06Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section06Activity.class);
                 break;
             case R.id.formG:
-                oF = new Intent(this, Section07Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section07Activity.class);
                 break;
             case R.id.formH:
-                oF = new Intent(this, Section08Activity.class);
+                if (form == null)
+                    oF = new Intent(this, Section08Activity.class);
                 break;
         }
         startActivity(oF);

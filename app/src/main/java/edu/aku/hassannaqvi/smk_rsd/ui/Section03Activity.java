@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import edu.aku.hassannaqvi.smk_rsd.MainActivity;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
@@ -63,7 +62,7 @@ public class Section03Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, Section04Activity.class));
         }
     }
 

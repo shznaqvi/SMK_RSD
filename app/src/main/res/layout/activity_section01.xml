@@ -89,7 +89,7 @@
 
 
                 <!-- distcode  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVdistcode"
                     style="@style/cardView">
 
@@ -130,7 +130,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
 
                 <!-- facilityname  Input   -->
@@ -174,8 +174,53 @@
 
 
                 <!-- facilitycode  Input-Numeric   -->
+                <!-- <androidx.cardview.widget.CardView
+                     android:id="@+id/fldGrpCVfacilitycode"
+                     style="@style/cardView">
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="vertical">
+
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:background="@drawable/bottom"
+                             android:orientation="horizontal">
+
+                             <TextView
+                                 style="@style/quesNum"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="match_parent"
+                                 android:text="@string/Q_facilitycode" />
+
+                             <TextView
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:text="@string/facilitycode" />
+
+                         </LinearLayout>
+
+                         <com.edittextpicker.aliazaz.EditTextPicker
+                             android:id="@+id/facilitycode"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:hint="@string/facilitycode"
+                             android:inputType="number"
+                             android:maxLength="3"
+                             app:maxValue="100"
+                             app:minValue="0"
+                             app:type="range" />
+
+                     </LinearLayout>
+
+                 </androidx.cardview.widget.CardView>-->
+
+
+                <!-- reportingdate  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVfacilitycode"
+                    android:id="@+id/fldGrpCVreportingdate"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -193,52 +238,7 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_facilitycode" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/facilitycode" />
-
-                        </LinearLayout>
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/facilitycode"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/facilitycode"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            app:maxValue="100"
-                            app:minValue="0"
-                            app:type="range" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- reportingmonth  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVreportingmonth"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_reportingmonth" />
+                                android:text="@string/Q_reportingdate" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -247,61 +247,59 @@
 
                         </LinearLayout>
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/reportingmonth"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/reportingmonth"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:maxValue="12"
-                            app:minValue="1"
-                            app:type="range" />
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="Month" />
 
-                </androidx.cardview.widget.CardView>
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="Year" />
 
-
-                <!-- reportingyear  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVreportingyear"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
                             android:orientation="horizontal">
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/reportingmonth"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_reportingyear" />
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="12"
+                                app:minValue="1"
+                                app:type="range" />
 
-                            <TextView
-                                android:layout_width="match_parent"
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/reportingyear"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:text="@string/reportingyear" />
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="####"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                app:maxValue="2021"
+                                app:minValue="2020"
+                                app:type="range" />
 
                         </LinearLayout>
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/reportingyear"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/reportingyear"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            app:maxValue="2021"
-                            app:minValue="2020"
-                            app:type="range" />
 
                     </LinearLayout>
 
