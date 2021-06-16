@@ -26,7 +26,6 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.smk_rsd.R;
-import id.zelory.compressor.Compressor;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
 
@@ -298,10 +297,10 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
             //compressAndMove(tmpFile);
 
             //camera.startPreview();
-            String fileName = compressAndMove(tmpFile);
+//            String fileName = compressAndMove(tmpFile);
             tmpFile = null;
             Intent intent = new Intent();
-            intent.putExtra("FileName", fileName);
+//            intent.putExtra("FileName", fileName);
             setResult(1, intent);
             finish();//finishing activity
             //previewFlag = false;
@@ -349,7 +348,7 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
 
     }
 
-    private String compressAndMove(String inputFile) {
+/*    private String compressAndMove(String inputFile) {
         File inputPath = getDir(0);
         File outputPath = getDir(1);
         File actualImage = new File(inputPath + File.separator + inputFile);
@@ -359,8 +358,8 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
 //                    .setMaxWidth(2576)
 //                    .setMaxHeight(1932)
 //
-                    /*      .setMaxWidth(640)
-                          .setMaxHeight(480)*/
+                    *//*      .setMaxWidth(640)
+                          .setMaxHeight(480)*//*
                     .setQuality(88)
                     .setCompressFormat(Bitmap.CompressFormat.JPEG)
                     .compressToFile(actualImage);
@@ -374,7 +373,7 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
         new File(inputPath + File.separator + inputFile).delete();
         Toast.makeText(this, "Photo Saved in " + outputPath + File.separator + inputFile, Toast.LENGTH_SHORT).show();
         return inputFile;
-    }
+    }*/
 
     /*
         private void moveFile(String inputFile) {
