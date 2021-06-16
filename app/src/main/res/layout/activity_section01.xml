@@ -77,7 +77,7 @@
                         </LinearLayout>
 
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/distname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
 
                         </LinearLayout>
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/facilityname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

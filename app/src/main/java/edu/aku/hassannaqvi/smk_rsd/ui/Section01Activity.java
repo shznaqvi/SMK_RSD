@@ -1,8 +1,11 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +14,8 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -20,6 +25,7 @@ import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection01Binding;
+import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
@@ -35,6 +41,7 @@ public class Section01Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section01);
         setupSkips();
         setSupportActionBar(bi.toolbar);
+        populateSpinner(this);
     }
 
 
@@ -54,7 +61,14 @@ public class Section01Activity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setDistrictName(bi.distname.getText().toString().trim().isEmpty() ? "-1" : bi.distname.getText().toString());
+        form.setDistrictName(bi.distname.getSelectedItem().toString());
+        form.setDistrictName(districtCodes.get(bi.distname.getSelectedItemPosition()));
+
+        form.setHfName(bi.facilityname.getSelectedItem().toString());
+        form.setHfName(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
+
+        form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
+        form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
 
     }
 
@@ -94,6 +108,69 @@ public class Section01Activity extends AppCompatActivity {
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
+    }
+
+
+    public void populateSpinner(final Context context) {
+
+        districtNames = new ArrayList<>();
+        districtCodes = new ArrayList<>();
+
+        districtNames.add("....");
+        districtCodes.add("....");
+
+        Collection<HealthFacilities> dc = db.getAllTehsils(MainApp.DIST_ID);
+
+        for (HealthFacilities d : dc) {
+            districtNames.add(d.getTehsilId());
+            districtCodes.add(d.getTehsilId());
+        }
+
+        bi.distname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, districtNames));
+
+
+        bi.distname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0) return;
+
+                hfNames = new ArrayList<>();
+                hfCodes = new ArrayList<>();
+
+                hfNames.add("....");
+                hfCodes.add("....");
+
+                Collection<HealthFacilities> pc = db.getAllUC(tehsilCodes.get(position));
+                for (HealthFacilities p : pc) {
+                    hfNames.add(p.getHf_name());
+                    hfCodes.add(p.getHfcode());
+                }
+
+                bi.facilityname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+        bi.facilityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0) return;
+                //Toast.makeText(Section01Activity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
     }
 
 
