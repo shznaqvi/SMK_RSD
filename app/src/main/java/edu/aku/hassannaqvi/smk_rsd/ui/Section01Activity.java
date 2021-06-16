@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,9 +14,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import edu.aku.hassannaqvi.smk_rsd.MainActivity;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
+import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection01Binding;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
@@ -52,7 +55,14 @@ public class Section01Activity extends AppCompatActivity {
 
 
     private boolean updateDB() {
-        return true;
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
+        if (updcount == 1) {
+            return true;
+        } else {
+            Toast.makeText(this, "SORRY! Failed to update DB", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
@@ -60,9 +70,8 @@ public class Section01Activity extends AppCompatActivity {
         if (!formValidation()) return;
         saveDraft();
         if (updateDB()) {
-            Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
             finish();
-            //gotoActivityWithPutExtra(this, SectionMobileHealth.class, "complete", true);
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 

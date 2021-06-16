@@ -1,15 +1,24 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
+import edu.aku.hassannaqvi.smk_rsd.MainActivity;
 import edu.aku.hassannaqvi.smk_rsd.R;
+import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
+import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
+import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection08Binding;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
@@ -29,6 +38,26 @@ public class Section08Activity extends AppCompatActivity {
 
 
     private void setupSkips() {
+        rglsnr(bi.str01s, bi.str01n, bi.fldGrpCVstr01t);
+        rglsnr(bi.str02s, bi.str02n, bi.fldGrpCVstr02t);
+        rglsnr(bi.str03s, bi.str03n, bi.fldGrpCVstr03t);
+        rglsnr(bi.str04s, bi.str04n, bi.fldGrpCVstr04t);
+        rglsnr(bi.str05s, bi.str05n, bi.fldGrpCVstr05t);
+        rglsnr(bi.str06s, bi.str06n, bi.fldGrpCVstr06t);
+        rglsnr(bi.str07s, bi.str07n, bi.fldGrpCVstr07t);
+        rglsnr(bi.str08s, bi.str08n, bi.fldGrpCVstr08t);
+        rglsnr(bi.str09s, bi.str09n, bi.fldGrpCVstr09t);
+    }
+
+
+    private void rglsnr(RadioGroup rg, RadioButton rb, CardView cv) {
+        rg.setOnCheckedChangeListener((radioGroup, i) -> {
+            Clear.clearAllFields(cv);
+            cv.setVisibility(View.GONE);
+            if (rb.getId() == i) {
+                cv.setVisibility(View.VISIBLE);
+            }
+        });
 
     }
 
@@ -95,7 +124,14 @@ public class Section08Activity extends AppCompatActivity {
 
 
     private boolean updateDB() {
-        return true;
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
+        if (updcount == 1) {
+            return true;
+        } else {
+            Toast.makeText(this, "SORRY! Failed to update DB", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
@@ -103,9 +139,8 @@ public class Section08Activity extends AppCompatActivity {
         if (!formValidation()) return;
         saveDraft();
         if (updateDB()) {
-            Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
             finish();
-            //gotoActivityWithPutExtra(this, SectionMobileHealth.class, "complete", true);
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
