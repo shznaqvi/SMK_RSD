@@ -152,7 +152,8 @@
                                     android:id="@+id/str01d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str01d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -178,7 +179,8 @@
                                     android:id="@+id/str01m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str01m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -301,7 +303,8 @@
                                     android:id="@+id/str02d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str02d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -327,7 +330,8 @@
                                     android:id="@+id/str02m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str02m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -450,7 +454,8 @@
                                     android:id="@+id/str03d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str03d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -476,7 +481,8 @@
                                     android:id="@+id/str03m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str03m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -577,7 +583,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -599,7 +604,8 @@
                                     android:id="@+id/str04d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str04d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -607,7 +613,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -625,7 +630,8 @@
                                     android:id="@+id/str04m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str04m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -726,7 +732,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -748,7 +753,8 @@
                                     android:id="@+id/str05d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str05d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -756,7 +762,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -774,7 +779,8 @@
                                     android:id="@+id/str05m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str05m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -875,7 +881,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -897,7 +902,8 @@
                                     android:id="@+id/str06d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str06d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -905,7 +911,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -923,7 +928,8 @@
                                     android:id="@+id/str06m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str06m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -1024,7 +1030,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1046,7 +1051,8 @@
                                     android:id="@+id/str07d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str07d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -1054,7 +1060,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1072,7 +1077,8 @@
                                     android:id="@+id/str07m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str07m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -1173,7 +1179,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1195,7 +1200,8 @@
                                     android:id="@+id/str08d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str08d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -1203,7 +1209,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1221,7 +1226,8 @@
                                     android:id="@+id/str08m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str08m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
@@ -1322,7 +1328,6 @@
 
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1344,7 +1349,8 @@
                                     android:id="@+id/str09d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str09d"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="29"
@@ -1352,7 +1358,6 @@
                                     app:type="range" />
 
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1370,7 +1375,8 @@
                                     android:id="@+id/str09m"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="@string/str09m"
+                                    android:gravity="center"
+                                    android:hint="##"
                                     android:inputType="number"
                                     android:maxLength="2"
                                     app:maxValue="23"
