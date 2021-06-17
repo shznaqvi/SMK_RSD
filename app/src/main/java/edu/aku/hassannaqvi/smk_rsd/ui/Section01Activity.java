@@ -62,10 +62,10 @@ public class Section01Activity extends AppCompatActivity {
         form.setAppver(MainApp.appInfo.getAppVersion());
 
         form.setDistrictName(bi.distname.getSelectedItem().toString());
-        form.setDistrictName(districtCodes.get(bi.distname.getSelectedItemPosition()));
+        form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
 
         form.setHfName(bi.facilityname.getSelectedItem().toString());
-        form.setHfName(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
+        form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
         form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
         form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
