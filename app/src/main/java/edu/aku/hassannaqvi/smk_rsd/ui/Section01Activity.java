@@ -149,7 +149,6 @@ public class Section01Activity extends AppCompatActivity {
                 }
 
                 bi.facilityname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-
             }
 
             @Override
@@ -164,15 +163,11 @@ public class Section01Activity extends AppCompatActivity {
 
                 if (position == 0) return;
                 //Toast.makeText(Section01Activity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
     }
-
-
 }
