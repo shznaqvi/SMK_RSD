@@ -15,7 +15,6 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -25,6 +24,7 @@ import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection01Binding;
+import edu.aku.hassannaqvi.smk_rsd.models.Districts;
 import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
@@ -119,11 +119,12 @@ public class Section01Activity extends AppCompatActivity {
         districtNames.add("....");
         districtCodes.add("....");
 
-        Collection<HealthFacilities> dc = db.getAllTehsils(MainApp.DIST_ID);
+        //Collection<HealthFacilities> dc = db.getAllTehsils(MainApp.DIST_ID);
+        ArrayList<Districts> dc = db.getAllDistricts();
 
-        for (HealthFacilities d : dc) {
-            districtNames.add(d.getTehsilId());
-            districtCodes.add(d.getTehsilId());
+        for (Districts d : dc) {
+            districtNames.add(d.getDistrictName());
+            districtCodes.add(d.getDistrictCode());
         }
 
         bi.distname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, districtNames));
@@ -141,7 +142,7 @@ public class Section01Activity extends AppCompatActivity {
                 hfNames.add("....");
                 hfCodes.add("....");
 
-                Collection<HealthFacilities> pc = db.getAllUC(tehsilCodes.get(position));
+                ArrayList<HealthFacilities> pc = db.getHfByDist(districtCodes.get(position));
                 for (HealthFacilities p : pc) {
                     hfNames.add(p.getHf_name());
                     hfCodes.add(p.getHfcode());

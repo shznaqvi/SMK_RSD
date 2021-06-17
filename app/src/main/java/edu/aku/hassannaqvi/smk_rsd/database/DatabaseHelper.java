@@ -19,6 +19,8 @@ import java.util.Date;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form.FormsTable;
+import edu.aku.hassannaqvi.smk_rsd.models.Districts;
+import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import edu.aku.hassannaqvi.smk_rsd.models.Users.UsersTable;
 import edu.aku.hassannaqvi.smk_rsd.models.VersionApp;
@@ -890,6 +892,80 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             alc.set(1, Cursor2);
             return alc;
         }
+    }
+
+    public ArrayList<Districts> getAllDistricts() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = Districts.TableDistricts._ID + " ASC";
+        ArrayList<Districts> all = new ArrayList<>();
+        try {
+            c = db.query(
+                    Districts.TableDistricts.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                all.add(new Districts().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return all;
+    }
+
+    public ArrayList<HealthFacilities> getHfByDist(String distid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID + "=?";
+        String[] whereArgs = {distid};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME + " ASC";
+
+        ArrayList<HealthFacilities> hf = new ArrayList<>();
+        try {
+            c = db.query(
+                    HealthFacilities.TableHealthFacilities.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                hf.add(new HealthFacilities().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return hf;
     }
 
 
