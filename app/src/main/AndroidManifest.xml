@@ -10,6 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SMKRSD">
 
 
@@ -95,12 +96,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
+
         <activity
-            android:name="edu.aku.hassannaqvi.smk_rsd.ui.SyncActivity"
-            android:exported="false"
-            android:parentActivityName="edu.aku.hassannaqvi.smk_rsd.ui.Section01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:name=".ui.SyncActivity"
+            android:label="Download and Upload Data Activity"
+            android:screenOrientation="portrait" />
 
 
     </application>

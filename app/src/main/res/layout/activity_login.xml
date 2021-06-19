@@ -208,7 +208,7 @@
                                 android:background="@drawable/action_button_dull"
                                 android:drawableStart="@drawable/ic_upload"
                                 android:drawablePadding="12dp"
-
+                                android:onClick="@{callback::onSyncDataClick}"
                                 android:paddingStart="12dp"
                                 android:paddingEnd="12dp"
                                 android:text="Download User Data"

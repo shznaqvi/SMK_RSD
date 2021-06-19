@@ -43,6 +43,7 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.smk_rsd.CONSTANTS;
 import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.smk_rsd.core.AppInfo;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.data.model.SyncModel;
@@ -55,6 +56,7 @@ import edu.aku.hassannaqvi.smk_rsd.workers.DataUpWorkerALL;
 import edu.aku.hassannaqvi.smk_rsd.workers.PhotoUploadWorker2;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.sdDir;
 import static edu.aku.hassannaqvi.smk_rsd.utils.AndroidUtilityKt.isNetworkConnected;
 import static edu.aku.hassannaqvi.smk_rsd.utils.AppUtilsKt.dbBackup;
@@ -81,7 +83,11 @@ public class SyncActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_sync);
         bi.setCallback(this);
         //setSupportActionBar(bi.toolbar);
-        db = MainApp.appInfo.getDbHelper();
+
+        //TODO: initialized just for now
+        appInfo = new AppInfo(this);
+        db = appInfo.getDbHelper();
+
         uploadTables = new ArrayList<>();
         downloadTables = new ArrayList<>();
         MainApp.uploadData = new ArrayList<>();
@@ -386,7 +392,7 @@ public class SyncActivity extends AppCompatActivity {
                         int sDuplicate = 0;
                         StringBuilder sSyncedError = new StringBuilder();
                         JSONArray json;
-
+                        result = MainApp.downloadData[position];
                         if (result != null) {
                             if (result.length() > 0) {
                                 try {

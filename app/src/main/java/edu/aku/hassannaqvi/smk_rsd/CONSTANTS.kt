@@ -17,5 +17,15 @@ class CONSTANTS {
 
         const val CAMP_DATA = "campDATA"
         const val SELECTED_CAMP_DATA = "selectedCampData"
+
+        //Form Type
+        const val SECTION_A = ""
+        const val SECTION_B = ""
+        const val SECTION_C = ""
+        const val SECTION_D = ""
+        const val SECTION_E = ""
+        const val SECTION_F = ""
+        const val SECTION_G = ""
+        const val SECTION_H = ""
     }
 }

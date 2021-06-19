@@ -125,5 +125,4 @@ dependencies {
     //Image Compressor
     implementation 'id.zelory:compressor:2.1.0'
 
-
 }
