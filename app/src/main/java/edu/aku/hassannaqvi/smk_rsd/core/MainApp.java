@@ -50,6 +50,7 @@ public class MainApp extends Application {
     public static Integer versionCode;
     public static String versionName;
     public static String userName;
+    public static boolean permissionCheck = false;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
     public static int[] randHHNo;
