@@ -24,6 +24,7 @@ import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityLoginBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 
+import static edu.aku.hassannaqvi.smk_rsd.utils.AndroidUtilityKt.isNetworkConnected;
 import static java.lang.Thread.sleep;
 
 
@@ -101,14 +102,22 @@ public class LoginActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-        //    showProgress(true);
+            //    showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
     }
 
 
-    public void syncData() {
+    public void onSyncDataClick(View view) {
+        if (!isNetworkConnected(this)) {
+            Toast.makeText(this, "Network connection not available!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        startActivity(new Intent(this, SyncActivity.class));
+    }
+
+/*    public void syncData() {
 //        ConnectivityManager connMgr = (ConnectivityManager)
 //                getSystemService(Context.CONNECTIVITY_SERVICE);
 //        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -121,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 //        }
 
         startActivity(new Intent(this, SyncActivity.class));
-    }
+    }*/
 
 /*    private void showProgress(boolean b) {
         if (b) {

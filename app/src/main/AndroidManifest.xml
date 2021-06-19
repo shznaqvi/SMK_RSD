@@ -95,6 +95,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English" />
 
+        <activity
+            android:name="edu.aku.hassannaqvi.smk_rsd.ui.SyncActivity"
+            android:exported="false"
+            android:parentActivityName="edu.aku.hassannaqvi.smk_rsd.ui.Section01Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
 
 
     </application>
