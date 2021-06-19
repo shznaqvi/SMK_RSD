@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_rsd.ui;
+package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;

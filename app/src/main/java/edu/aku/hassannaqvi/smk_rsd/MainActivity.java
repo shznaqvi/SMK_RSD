@@ -6,14 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import edu.aku.hassannaqvi.smk_rsd.ui.Section01Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section02Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section03Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section04Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section05Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section06Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section07Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.Section08Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section01Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section02Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section03Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section04Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section05Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section06Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section07Activity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section08Activity;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 

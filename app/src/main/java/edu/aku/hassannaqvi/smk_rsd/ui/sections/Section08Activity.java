@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_rsd.ui;
+package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection08Binding;
+import edu.aku.hassannaqvi.smk_rsd.ui.EndingActivity;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 

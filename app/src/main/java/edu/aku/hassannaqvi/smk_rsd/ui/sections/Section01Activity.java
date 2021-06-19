@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_rsd.ui;
+package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Context;
 import android.content.Intent;
@@ -39,9 +39,13 @@ public class Section01Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section01);
+        db = MainApp.appInfo.dbHelper;
+
         setupSkips();
         setSupportActionBar(bi.toolbar);
         populateSpinner(this);
+
+
     }
 
 

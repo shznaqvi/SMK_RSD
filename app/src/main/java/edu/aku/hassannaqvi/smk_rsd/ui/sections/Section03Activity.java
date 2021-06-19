@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_rsd.ui;
+package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,21 +14,22 @@ import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
-import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection04Binding;
+import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection03Binding;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
-public class Section04Activity extends AppCompatActivity {
-    ActivitySection04Binding bi;
+
+public class Section03Activity extends AppCompatActivity {
+    ActivitySection03Binding bi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section04);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section03);
         setupSkips();
         setSupportActionBar(bi.toolbar);
     }
-
 
 
     private void setupSkips() {
@@ -38,11 +39,8 @@ public class Section04Activity extends AppCompatActivity {
 
     private void saveDraft() {
 
-        form.setShf01(bi.shf01.getText().toString().isEmpty() ? "-1" : bi.shf01.getText().toString());
-        form.setShf0197(bi.shf0197.isChecked() ? "97" : "-1");
-
-        form.setShf02(bi.shf02.getText().toString().isEmpty() ? "-1" : bi.shf02.getText().toString());
-        form.setShf0297(bi.shf0297.isChecked() ? "97" : "-1");
+        form.setEpi01(bi.epi01.getText().toString().isEmpty() ? "-1" : bi.epi01.getText().toString());
+        form.setEpi0197(bi.epi0197.isChecked() ? "97" : "-1");
 
     }
 
@@ -64,7 +62,7 @@ public class Section04Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, Section05Activity.class));
+            startActivity(new Intent(this, Section04Activity.class));
         }
     }
 

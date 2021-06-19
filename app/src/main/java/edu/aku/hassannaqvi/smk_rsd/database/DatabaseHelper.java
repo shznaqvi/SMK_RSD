@@ -969,4 +969,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean doLogin(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                UsersTable.COLUMN_ID,
+                UsersTable.COLUMN_USERNAME,
+                UsersTable.COLUMN_PASSWORD,
+                UsersTable.COLUMN_FULLNAME,
+        };
+        String whereClause = UsersTable.COLUMN_USERNAME + "=? AND " + UsersTable.COLUMN_PASSWORD + "=?";
+        String[] whereArgs = {username, password};
+        String groupBy = null;
+        String having = null;
+        String orderBy = UsersTable.COLUMN_ID + " ASC";
+
+        Users loggedInUser = null;
+        try {
+            c = db.query(
+                    UsersTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                loggedInUser = new Users().hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        MainApp.user = loggedInUser;
+        return c.getCount() > 0 ;
+    }
 }

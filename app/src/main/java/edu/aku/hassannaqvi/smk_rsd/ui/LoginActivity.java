@@ -1,15 +1,21 @@
 package edu.aku.hassannaqvi.smk_rsd.ui;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,30 +27,53 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 import edu.aku.hassannaqvi.smk_rsd.MainActivity;
 import edu.aku.hassannaqvi.smk_rsd.R;
+import edu.aku.hassannaqvi.smk_rsd.core.AppInfo;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivityLoginBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 
-import static edu.aku.hassannaqvi.smk_rsd.utils.AndroidUtilityKt.isNetworkConnected;
-import static java.lang.Thread.sleep;
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME;
+import static edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.DATABASE_COPY;
+import static edu.aku.hassannaqvi.smk_rsd.database.CreateSQL.DATABASE_NAME;
 
 
 public class LoginActivity extends AppCompatActivity {
 
+    protected static LocationManager locationManager;
+
+    // UI references.
 
     ActivityLoginBinding bi;
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "test1234:test1234", "testS12345:testS12345", "bar@example.com:world"
-    };
+    Spinner spinnerDistrict;
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    String DirectoryName;
     DatabaseHelper db;
-    private UserLoginTask mAuthTask = null;
+    ArrayAdapter<String> provinceAdapter;
+    int attemptCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,193 +94,76 @@ public class LoginActivity extends AppCompatActivity {
                 token.continuePermissionRequest();
             }
         }).check();
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
         bi.setCallback(this);
+        MainApp.appInfo = new AppInfo(this);
+        db = MainApp.appInfo.getDbHelper();
+        MainApp.user = new Users();
+        bi.txtinstalldate.setText(MainApp.appInfo.getAppInfo());
 
-        db = new DatabaseHelper(this);
+        dbBackup();
 
-        String packageName = getPackageName();
-        try {
-            long installedOn = this
-                    .getPackageManager()
-                    .getPackageInfo(packageName, 0)
-                    .lastUpdateTime;
-            Integer versionCode = this
-                    .getPackageManager()
-                    .getPackageInfo(packageName, 0)
-                    .versionCode;
-            String versionName = this
-                    .getPackageManager()
-                    .getPackageInfo(packageName, 0)
-                    .versionName;
-            bi.txtinstalldate.setText("Ver. " + versionName + "." + versionCode + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
-
-            MainApp.versionCode = versionCode;
-            MainApp.versionName = versionName;
-
-
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
 
 
     }
 
-    public void attemptLogin(View view) {
-        if (mAuthTask != null) {
-            return;
-        }
-        bi.username.setError(null);
-        bi.password.setError(null);
-        String email = bi.username.getText().toString();
-        String password = bi.password.getText().toString();
-        boolean cancel = false;
-        View focusView = null;
+    public void dbBackup() {
 
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            bi.password.setError(getString(R.string.error_invalid_password));
-            focusView = bi.password;
-            cancel = true;
-        }
-        if (TextUtils.isEmpty(email)) {
-            bi.username.setError(getString(R.string.error_field_required));
-            focusView = bi.username;
-            cancel = true;
-        }
+        sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
+        editor = sharedPref.edit();
 
-        if (cancel) {
-            focusView.requestFocus();
-        } else {
-            //    showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
-        }
-    }
+        if (sharedPref.getBoolean("flag", false)) {
 
+            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
 
-    public void onSyncDataClick(View view) {
-        if (!isNetworkConnected(this)) {
-            Toast.makeText(this, "Network connection not available!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        startActivity(new Intent(this, SyncActivity.class));
-    }
-
-/*    public void syncData() {
-//        ConnectivityManager connMgr = (ConnectivityManager)
-//                getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-//        if (networkInfo != null && networkInfo.isConnected()) {
-//            new GetAllData(this, "users", MainApp._HOST_URL + UsersContract.UsersTable._URI).execute();
-////            new GetAllData(this, "ucs", MainApp._HOST_URL + UCsContract.UCsTable._URI).execute();
-//            new GetAllData(this, "villages", MainApp._HOST_URL + VillagesContract.singleVillage._URI).execute();
-//        } else {
-//            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-//        }
-
-        startActivity(new Intent(this, SyncActivity.class));
-    }*/
-
-/*    private void showProgress(boolean b) {
-        if (b) {
-            bi.loginBtn.setVisibility(View.GONE);
-            bi.progressBar.setVisibility(View.VISIBLE);
-        } else {
-            bi.loginBtn.setVisibility(View.VISIBLE);
-            bi.progressBar.setVisibility(View.GONE);
-        }
-    }*/
-
-
-
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            try {
-                // Simulate network access.
-                sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
+                editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+                editor.apply();
             }
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
+            boolean success = true;
+            if (!folder.exists()) {
+                success = folder.mkdirs();
+            }
+            if (success) {
+
+                DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
+                folder = new File(DirectoryName);
+                if (!folder.exists()) {
+                    success = folder.mkdirs();
                 }
-            }
-            return true;
-        }
+                if (success) {
 
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            /*LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                    || (tagValues.get("org") == null || tagValues.get("org").equals("5"))) {*/
-            db = MainApp.appInfo.dbHelper;
-            MainApp.user = db.getLoginUser(mEmail, mPassword);
+                    try {
+                        File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getPath());
+                        FileInputStream fis = new FileInputStream(dbFile);
+                        String outFileName = DirectoryName + File.separator + DATABASE_COPY;
+                        // Open the empty db as the output stream
+                        OutputStream output = new FileOutputStream(outFileName);
 
-            if ((mEmail.equals("dmu@aku") && mPassword.equals("aku?dmu")) ||
-                    (mEmail.equals("guest@aku") && mPassword.equals("aku1234"))
-                    || (mEmail.equals("test1234") && mPassword.equals("test1234")) || MainApp.user != null) {
+                        // Transfer bytes from the inputfile to the outputfile
+                        byte[] buffer = new byte[1024];
+                        int length;
+                        while ((length = fis.read(buffer)) > 0) {
+                            output.write(buffer, 0, length);
+                        }
+                        // Close the streams
+                        output.flush();
+                        output.close();
+                        fis.close();
+                    } catch (IOException e) {
+                        Log.e("dbBackup:", Objects.requireNonNull(e.getMessage()));
+                    }
 
-                if (MainApp.user == null) {
-                    MainApp.user = new Users(mEmail, MainApp.DIST_ID);
                 }
 
-                MainApp.admin = mEmail.contains("@");
-                Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(iLogin);
             } else {
-                bi.password.setError(getString(R.string.error_incorrect_password));
-                bi.password.requestFocus();
-                Toast.makeText(LoginActivity.this, mEmail + " " + mPassword, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Not create folder", Toast.LENGTH_SHORT).show();
             }
-
-            /*          } else {
-                showProgress(false);
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this);
-                alertDialogBuilder
-                        .setMessage("GPS is disabled in your device. Enable it?")
-                        .setCancelable(false)
-                        .setPositiveButton("Enable GPS",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int id) {
-                                        Intent callGPSSettingIntent = new Intent(
-                                                android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                                        startActivity(callGPSSettingIntent);
-                                    }
-                                });
-                alertDialogBuilder.setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alert = alertDialogBuilder.create();
-                alert.show();
-            }*/
         }
-    }
 
+    }
     public void onShowPasswordClick(View view) {
         //TODO implement
         if (bi.password.getTransformationMethod() == null) {
@@ -262,12 +174,149 @@ public class LoginActivity extends AppCompatActivity {
             bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open, 0, 0, 0);
         }
     }
+    public void onSyncDataClick(View view) {
+        //callUsersWorker();
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            startActivity(new Intent(this, SyncActivity.class).putExtra("login", true));
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static String encrypt(String plain) {
+        try {
+            byte[] iv = new byte[16];
+            new SecureRandom().nextBytes(iv);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec("asSa%s|n'$ crEed".getBytes(StandardCharsets.UTF_8), "AES"), new IvParameterSpec(iv));
+            byte[] cipherText = cipher.doFinal(plain.getBytes(StandardCharsets.UTF_8));
+            byte[] ivAndCipherText = new byte[iv.length + cipherText.length];
+            System.arraycopy(iv, 0, ivAndCipherText, 0, iv.length);
+            System.arraycopy(cipherText, 0, ivAndCipherText, iv.length, cipherText.length);
+            return Base64.encodeToString(ivAndCipherText, Base64.NO_WRAP);
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+    public static String decrypt(String encoded) {
+        try {
+            byte[] ivAndCipherText = Base64.decode(encoded, Base64.NO_WRAP);
+            byte[] iv = Arrays.copyOfRange(ivAndCipherText, 0, 16);
+            byte[] cipherText = Arrays.copyOfRange(ivAndCipherText, 16, ivAndCipherText.length);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec("asSa%s|n'$ crEed".getBytes(StandardCharsets.UTF_8), "AES"), new IvParameterSpec(iv));
+            return new String(cipher.doFinal(cipherText), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+    public void attemptLogin(View view) {
+        attemptCounter++;
+        // Reset errors.
+        bi.username.setError(null);
+        bi.password.setError(null);
+        Toast.makeText(this, String.valueOf(attemptCounter), Toast.LENGTH_SHORT).show();
+        if (attemptCounter == 7) {
+            Intent iLogin = new Intent(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this, MainActivity.class);
+            startActivity(iLogin);
+
+        } else {
+            // Store values at the time of the login attempt.
+            String username = bi.username.getText().toString();
+            String password = bi.password.getText().toString();
+
+            boolean cancel = false;
+            View focusView = null;
+
+            // Check for a valid password, if the user entered one.
+            if (password.length()<8) {
+                bi.password.setError("Invalid Password");
+                focusView = bi.password;
+            return;
+            }
+
+            // Check for a valid username address.
+            if (TextUtils.isEmpty(username)) {
+                bi.username.setError("Username is required.");
+                focusView = bi.username;
+   return;
+            }
+
+                if ((username.equals("dmu@aku") && password.equals("aku?dmu"))
+                        || (username.equals("test1234") && password.equals("test1234"))
+                        || db.doLogin(username, password)
+                ) {
+                    MainApp.admin = username.contains("@")||username.contains("test1234");
+                    MainApp.user.setUserName(username);
+
+                    Intent iLogin = new Intent(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this, MainActivity.class);
+                    startActivity(iLogin);
+                } else {
+                    bi.password.setError("Incorrect Username or Password");
+                    bi.password.requestFocus();
+                    Toast.makeText(edu.aku.hassannaqvi.smk_rsd.ui.LoginActivity.this, username + " " + password, Toast.LENGTH_SHORT).show();
+                }
 
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() >= 7;
+
+        }
+    }
+
+    public String computeHash(String input) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.reset();
+        byte[] byteData = digest.digest(input.getBytes(StandardCharsets.UTF_8));
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < byteData.length; i++) {
+            sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+        Log.d("TAG", "computeHash: " + sb);
+        return sb.toString();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            hideSystemUI();
+        }
+    }
+
+    private void hideSystemUI() {
+        // Enables regular immersive mode.
+        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        // Set the content to appear under the system bars so that the
+                        // content doesn't resize when the system bars hide and show.
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    // Shows the system bars by removing all the flags
+// except for the ones that make the content appear under the system bars.
+    private void showSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
 
 
 }
+

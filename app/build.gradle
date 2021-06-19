@@ -61,7 +61,7 @@ android {
         applicationVariants.all { variant ->
             variant.outputs.each { output ->
 
-                def appName = "SMK_RSD"
+                def appName = rootProject.name
                 def date = new Date()
                 def formattedDate = date.format('yyyy_MM_dd')
 

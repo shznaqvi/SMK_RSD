@@ -10,7 +10,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.smk_rsd.ui.Section07Activity" />
+            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.Section07Activity" />
 
     </data>
 

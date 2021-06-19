@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_rsd.ui;
+package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,22 +14,21 @@ import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
-import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection02Binding;
+import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection04Binding;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
-
-public class Section02Activity extends AppCompatActivity {
-    ActivitySection02Binding bi;
-
+public class Section04Activity extends AppCompatActivity {
+    ActivitySection04Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section02);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section04);
         setupSkips();
         setSupportActionBar(bi.toolbar);
     }
+
 
 
     private void setupSkips() {
@@ -39,20 +38,11 @@ public class Section02Activity extends AppCompatActivity {
 
     private void saveDraft() {
 
-        form.setMhr01(bi.mhr01.getText().toString().isEmpty() ? "-1" : bi.mhr01.getText().toString());
-        form.setMhr0197(bi.mhr0197.isChecked() ? "97" : "-1");
+        form.setShf01(bi.shf01.getText().toString().isEmpty() ? "-1" : bi.shf01.getText().toString());
+        form.setShf0197(bi.shf0197.isChecked() ? "97" : "-1");
 
-        form.setMhr02(bi.mhr02.getText().toString().isEmpty() ? "-1" : bi.mhr02.getText().toString());
-        form.setMhr0297(bi.mhr0297.isChecked() ? "97" : "-1");
-
-        form.setMhr03(bi.mhr03.getText().toString().isEmpty() ? "-1" : bi.mhr03.getText().toString());
-        form.setMhr0397(bi.mhr0397.isChecked() ? "97" : "-1");
-
-        form.setMhr04(bi.mhr04.getText().toString().isEmpty() ? "-1" : bi.mhr04.getText().toString());
-        form.setMhr0497(bi.mhr0497.isChecked() ? "97" : "-1");
-
-        form.setMhr05(bi.mhr05.getText().toString().isEmpty() ? "-1" : bi.mhr05.getText().toString());
-        form.setMhr0597(bi.mhr0597.isChecked() ? "97" : "-1");
+        form.setShf02(bi.shf02.getText().toString().isEmpty() ? "-1" : bi.shf02.getText().toString());
+        form.setShf0297(bi.shf0297.isChecked() ? "97" : "-1");
 
     }
 
@@ -74,7 +64,7 @@ public class Section02Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, Section03Activity.class));
+            startActivity(new Intent(this, Section05Activity.class));
         }
     }
 

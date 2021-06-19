@@ -48,7 +48,7 @@
 
 
         <activity
-            android:name=".ui.Section01Activity"
+            android:name=".ui.sections.Section01Activity"
             android:label="@string/hfinfo"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -56,7 +56,7 @@
 
 
         <activity
-            android:name=".ui.Section02Activity"
+            android:name=".ui.sections.Section02Activity"
             android:label="@string/secone"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -64,7 +64,7 @@
 
 
         <activity
-            android:name=".ui.Section03Activity"
+            android:name=".ui.sections.Section03Activity"
             android:label="@string/sectwo"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -72,7 +72,7 @@
 
 
         <activity
-            android:name=".ui.Section04Activity"
+            android:name=".ui.sections.Section04Activity"
             android:label="@string/secthree"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -80,7 +80,7 @@
 
 
         <activity
-            android:name=".ui.Section05Activity"
+            android:name=".ui.sections.Section05Activity"
             android:label="@string/secfour"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -88,7 +88,7 @@
 
 
         <activity
-            android:name=".ui.Section06Activity"
+            android:name=".ui.sections.Section06Activity"
             android:label="@string/secfive"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -96,7 +96,7 @@
 
 
         <activity
-            android:name=".ui.Section07Activity"
+            android:name=".ui.sections.Section07Activity"
             android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
@@ -104,7 +104,7 @@
 
 
         <activity
-            android:name=".ui.Section08Activity"
+            android:name=".ui.sections.Section08Activity"
             android:label="@string/secseven"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
