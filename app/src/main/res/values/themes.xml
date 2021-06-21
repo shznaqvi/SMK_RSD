@@ -312,4 +312,10 @@
             <item name="android:minDate">01/01/2000</item>
         </style>
 
-    </resources>
+
+
+    <style name="Theme.splashscreen" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/app_icon</item>
+    </style>
+
+</resources>

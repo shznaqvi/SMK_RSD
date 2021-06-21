@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                 token.continuePermissionRequest();
             }
         }).check();
+        setTheme(R.style.AppTheme);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
         bi.setCallback(this);
         MainApp.appInfo = new AppInfo(this);

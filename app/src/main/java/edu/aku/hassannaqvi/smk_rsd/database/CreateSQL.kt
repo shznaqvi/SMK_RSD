@@ -3,7 +3,7 @@ package edu.aku.hassannaqvi.smk_rsd.database
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp.PROJECT_NAME
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form
 import edu.aku.hassannaqvi.smk_rsd.models.Districts
-import edu.aku.hassannaqvi.smk_rsd.models.RsdHF
+import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities
 import edu.aku.hassannaqvi.smk_rsd.models.Users
 import edu.aku.hassannaqvi.smk_rsd.models.VersionApp
 
@@ -65,15 +65,14 @@ object CreateSQL {
             VersionApp.VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
             ");"
 
-
-
-
-    const val SQL_CREATE_RSD_HF = ("CREATE TABLE " + RsdHF.TablersdHF.TABLE_NAME + "("
-            + RsdHF.TablersdHF.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + RsdHF.TablersdHF.COLUMN_PRO_ID + " TEXT,"
-            + RsdHF.TablersdHF.COLUMN_DIST_ID + " TEXT,"
-            + RsdHF.TablersdHF.COLUMN_TEHSIL_ID + " TEXT,"
-            + RsdHF.TablersdHF.COLUMN_UC_ID + " TEXT,"
-            + RsdHF.TablersdHF.COLUMN_HF_CODE + " TEXT"
+    const val SQL_CREATE_HEALTH_FACILITIES = ("CREATE TABLE " + HealthFacilities.TableHealthFacilities.TABLE_NAME + "("
+            + HealthFacilities.TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + HealthFacilities.TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
+            + HealthFacilities.TableHealthFacilities.COLUMN_UC_ID + " TEXT,"
+            + HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
+            + HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE + " TEXT,"
+            + HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID + " TEXT"
             + " );")
+
+
 }

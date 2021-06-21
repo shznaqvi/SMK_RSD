@@ -45,27 +45,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CreateSQL.SQL_CREATE_USERS);
         db.execSQL(CreateSQL.SQL_CREATE_DISTRICTS);
-        /*db.execSQL(CreateSQL.SQL_CREATE_UCS);
-        db.execSQL(CreateSQL.SQL_CREATE_CLUSTERS);*/
+
         db.execSQL(CreateSQL.SQL_CREATE_FORMS);
-       /* db.execSQL(CreateSQL.SQL_CREATE_HHIDENTIFY);
-        db.execSQL(CreateSQL.SQL_CREATE_LHW_HOUSEHOLD);
-        db.execSQL(CreateSQL.SQL_CREATE_HHMEMBERS);
-        db.execSQL(CreateSQL.SQL_CREATE_MWRA);
-        db.execSQL(CreateSQL.SQL_CREATE_ADOLESCENT);
-        db.execSQL(CreateSQL.SQL_CREATE_CHILD_INFO);
-        db.execSQL(CreateSQL.SQL_CREATE_CHILD);
-        db.execSQL(CreateSQL.SQL_CREATE_IMMUNIZATION);
-        db.execSQL(CreateSQL.SQL_CREATE_MOBILE_HEALTH);*/
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
-       /* db.execSQL(CreateSQL.SQL_CREATE_BL_RANDOM);
-        db.execSQL(CreateSQL.SQL_CREATE_CAMP);
-        db.execSQL(CreateSQL.SQL_CREATE_DOCTOR);
-        db.execSQL(CreateSQL.SQL_CREATE_LHW);
-        db.execSQL(CreateSQL.SQL_CREATE_TEHSIL);
-        db.execSQL(CreateSQL.SQL_CREATE_LHW_HF);
-        db.execSQL(CreateSQL.SQL_CREATE_PROVINCE);*/
-        db.execSQL(CreateSQL.SQL_CREATE_RSD_HF);
+
+        db.execSQL(CreateSQL.SQL_CREATE_HEALTH_FACILITIES);
+
     }
 
     @Override
@@ -604,24 +589,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
-    //    Sync Tehsil
-    /*public int syncTehsil(JSONArray tehsilList) {
+    //    Sync Districts
+    public int syncDistricts(JSONArray districtsList) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Tehsil.TableTehsil.TABLE_NAME, null, null);
+        db.delete(Districts.TableDistricts.TABLE_NAME, null, null);
         int insertCount = 0;
         try {
 
-            for (int i = 0; i < tehsilList.length(); i++) {
-                JSONObject json = tehsilList.getJSONObject(i);
-                Tehsil tehsil = new Tehsil();
-                tehsil.sync(json);
+            for (int i = 0; i < districtsList.length(); i++) {
+                JSONObject json = districtsList.getJSONObject(i);
+                Districts districts = new Districts();
+                districts.sync(json);
                 ContentValues values = new ContentValues();
 
-                values.put(Tehsil.TableTehsil.COLUMN_DIST_ID, tehsil.getDist_id());
-                values.put(Tehsil.TableTehsil.COLUMN_TEHSIL, tehsil.getTehsil());
-                values.put(Tehsil.TableTehsil.COLUMN_TEHSIL_ID, tehsil.getTehsilId());
+                values.put(Districts.TableDistricts.COLUMN_DISTRICT_NAME, districts.getDistrictName());
+                values.put(Districts.TableDistricts.COLUMN_DISTRICT_CODE, districts.getDistrictCode());
 
-                long rowID = db.insert(Tehsil.TableTehsil.TABLE_NAME, null, values);
+                long rowID = db.insert(Districts.TableDistricts.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
             db.close();
@@ -633,28 +617,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }*/
+    }
 
-    //    Sync RSDHF
-    /*public int syncRsdHF(JSONArray rsdHFList) {
+    //    Sync HealthFacilities
+  public int syncHealthFacilities(JSONArray healthFacilitiesList) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(RsdHF.TablersdHF.TABLE_NAME, null, null);
+        db.delete(HealthFacilities.TableHealthFacilities.TABLE_NAME, null, null);
         int insertCount = 0;
         try {
 
-            for (int i = 0; i < rsdHFList.length(); i++) {
-                JSONObject json = rsdHFList.getJSONObject(i);
-                RsdHF rsdHF = new RsdHF();
-                rsdHF.sync(json);
+            for (int i = 0; i < healthFacilitiesList.length(); i++) {
+                JSONObject json = healthFacilitiesList.getJSONObject(i);
+                HealthFacilities healthFacilities = new HealthFacilities();
+                healthFacilities.sync(json);
                 ContentValues values = new ContentValues();
 
-                values.put(RsdHF.TablersdHF.COLUMN_PRO_ID, rsdHF.getPro_id());
-                values.put(RsdHF.TablersdHF.COLUMN_DIST_ID, rsdHF.getDist_id());
-                values.put(RsdHF.TablersdHF.COLUMN_HF_CODE, rsdHF.getHf_Code());
-                values.put(RsdHF.TablersdHF.COLUMN_TEHSIL_ID, rsdHF.getTehsil_id());
-                values.put(RsdHF.TablersdHF.COLUMN_UC_ID, rsdHF.getUc_Id());
+                values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME, healthFacilities.getHf_name());
+                values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_CODE, healthFacilities.getHfcode());
+                values.put(HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID, healthFacilities.getTehsilId());
+                values.put(HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE, healthFacilities.getDist_id());
+                values.put(HealthFacilities.TableHealthFacilities.COLUMN_UC_ID, healthFacilities.getUc_Id());
 
-                long rowID = db.insert(RsdHF.TablersdHF.TABLE_NAME, null, values);
+                long rowID = db.insert(HealthFacilities.TableHealthFacilities.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
             db.close();
@@ -666,7 +650,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }*/
+    }
 
 
     //get UnSyncedTables
@@ -936,7 +920,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = null;
 
-        String whereClause = HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID + "=?";
+        String whereClause = HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE + "=?";
         String[] whereArgs = {distid};
         String groupBy = null;
         String having = null;

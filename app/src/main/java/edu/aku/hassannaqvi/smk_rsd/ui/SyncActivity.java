@@ -49,6 +49,8 @@ import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.data.model.SyncModel;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySyncBinding;
+import edu.aku.hassannaqvi.smk_rsd.models.Districts;
+import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
 import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import edu.aku.hassannaqvi.smk_rsd.models.VersionApp;
 import edu.aku.hassannaqvi.smk_rsd.workers.DataDownWorkerALL;
@@ -163,10 +165,13 @@ public class SyncActivity extends AppCompatActivity {
                     // Set tables to DOWNLOAD
                     downloadTables.add(new SyncModel(Users.UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionApp.VersionAppTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(Districts.TableDistricts.TABLE_NAME));
+                    downloadTables.add(new SyncModel(HealthFacilities.TableHealthFacilities.TABLE_NAME));
 
-                    String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
+
+                    /*String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
-                    /*downloadTables.add(new SyncModel(Camps.TableCamp.TABLE_NAME, select, filter));
+                    downloadTables.add(new SyncModel(Camps.TableCamp.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(Doctor.TableDoctor.TABLE_NAME));*/
                 }
                 MainApp.downloadData = new String[downloadTables.size()];
@@ -250,17 +255,17 @@ public class SyncActivity extends AppCompatActivity {
                                             insertCount = db.syncVersionApp(new JSONObject(result));
                                             if (insertCount == 1) jsonArray.put("1");
                                             break;
-                                        /*case Camps.TableCamp.TABLE_NAME:
+                                       case Districts.TableDistricts.TABLE_NAME:
                                             jsonArray = new JSONArray(result);
-                                            insertCount = db.syncCamp(jsonArray);
+                                            insertCount = db.syncDistricts(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
                                             break;
-                                        case Doctor.TableDoctor.TABLE_NAME:
+                                        case HealthFacilities.TableHealthFacilities.TABLE_NAME:
                                             jsonArray = new JSONArray(result);
-                                            insertCount = db.syncDoctor(jsonArray);
+                                            insertCount = db.syncHealthFacilities(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
                                             break;
-                                        case UCs.TableUCs.TABLE_NAME:
+                                      /*   case UCs.TableUCs.TABLE_NAME:
                                             jsonArray = new JSONArray(result);
                                             insertCount = db.syncUCs(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
