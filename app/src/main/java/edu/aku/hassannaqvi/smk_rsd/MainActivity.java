@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public void OpenFormFunc(int id) {
         Intent oF = null;
         switch (id) {
-            case R.id.formA:
+        /*    case R.id.formA:
                 oF = new Intent(this, Section01Activity.class);
                 break;
             case R.id.formB:
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.formH:
                 if (form == null)
                     oF = new Intent(this, Section08Activity.class);
-                break;
+                break;*/
         }
         startActivity(oF);
     }

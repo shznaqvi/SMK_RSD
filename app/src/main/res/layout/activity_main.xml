@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -25,217 +24,251 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:backgroundTint="@color/colorPrimary"
-            android:backgroundTintMode="multiply"
             android:layoutDirection="ltr"
             android:textAlignment="center"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextColor="@color/black" />
 
-        <TextView
-            android:id="@+id/testing"
+
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="12dp"
+                android:src="@drawable/app_icon" />
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryLight"
-            android:gravity="center"
-            android:keepScreenOn="true"
-            android:text="@string/only_for_testing"
-            android:textColor="@color/whiteOverlay"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/lblAppVersion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/whiteOverlay"
-            android:textAlignment="center"
-            android:textColor="@color/redDark"
-            android:textStyle="bold"
-            android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/top_round_shape"
+                android:elevation="1dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="72dp"
+                android:paddingTop="48dp"
+                android:paddingEnd="72dp">
 
+<TextView
+    android:id="@+id/username"
+    android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Panel"
+    android:layout_width="wrap_content"
+    android:layout_gravity="start"
+    android:layout_margin="4dp"
+    android:padding="4dp"
+    android:textColor="@color/colorPrimary"
+    android:layout_height="wrap_content"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="24dp"
 
-        <LinearLayout
-            android:id="@+id/btnSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            tools:visibility="visible">
+                    >
 
-            <Button
-                android:id="@+id/formA"
+                    <LinearLayout
+                        android:clickable="true"
+                        android:id="@+id/openForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="sectionPress"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:drawableStart="@drawable/new_form"
+                                android:drawablePadding="12dp"
+                                android:gravity="center_vertical"
+                                android:minWidth="460dp"
+                                android:text="OPEN NEW FORM"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="36dp"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:text="Open to enter new surveillance form"
+                                android:textColor="@color/gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_arrow_forward"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:textColor="@color/colorAccent"
+                            android:layout_margin="12dp"
+                            android:textSize="24dp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="24dp"
+
+                    >
+
+                </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:id="@+id/adminView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    android:background="@color/grayLight"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:padding="4dp"
+                        android:background="@color/colorAccentLightOverlay"
+                        android:text="ADMIN OPTIONS" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/sec1"
                 android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="@color/white"
+                    android:shadowRadius="8"
+                    android:onClick="sectionPress"
+                    android:textSize="14sp"
+                    android:layout_margin="4dp"
+                    android:elevation="1dp"
+                android:text="Section 1"/>
+                <TextView
+                    android:id="@+id/sec2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="@color/white"
+                    android:shadowRadius="8"
+                    android:onClick="sectionPress"
+                    android:text="Section 2"
+                    android:layout_margin="4dp"
+                    android:elevation="1dp"
+                    android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/sec3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="Section 3"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/sec4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="Section 4"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/sec5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="Section 5"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/onhold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="OnHold's List"
+                            android:textSize="14sp" />
+
+
+            </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="8dp"
-                android:text="A"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:background="@drawable/capsule"
+                android:elevation="1dp"
+                android:fontFamily="@font/open_sans_condensed_light"
+                android:gravity="center_horizontal|center_vertical"
+                android:minHeight="56dp"
+                android:radius="10dp"
+                android:text="MAIN SCREEN"
                 android:textColor="@color/white"
+                android:textSize="32dp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/formB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="B"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/formC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="C"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/formD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="D"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/formE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="E"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/formF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="F"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/formG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="G"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/formH"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/colorPrimary"
-                android:drawableStart="@drawable/action_button"
-                android:onClick="openForm"
-                android:padding="1dp"
-                android:text="H"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-
-            <!-- <Button
-                 android:id="@+id/editForm"
-                 android:layout_width="220dp"
-                 android:layout_height="wrap_content"
-                 android:layout_margin="10dp"
-                 android:background="@drawable/openform_background"
-                 android:drawableStart="@drawable/open_form"
-                 android:onClick="openForm"
-                 android:padding="8dp"
-                 android:text="EDIT FORM"
-                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                 android:textColor="@color/white"
-                 android:visibility="gone" />-->
-
-            <!--                    <Button
-                                    android:id="@+id/photos"
-                                    android:layout_width="220dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:background="@drawable/openform_background"
-                                    android:drawableStart="@drawable/open_form"
-                                    android:onClick="@{callback::uploadPhotos}"
-                                    android:padding="8dp"
-                                    android:text="UPLOAD PHOTOS"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                    android:textColor="@color/white" />-->
-
-        </LinearLayout>
-
-
+        </RelativeLayout>
     </LinearLayout>
-
 </layout>
