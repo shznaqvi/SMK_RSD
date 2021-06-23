@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.aku.hassannaqvi.smk_rsd.core.AndroidManager;
 import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section01Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public void sectionPress(View view) {
         finish();
         startActivity(new Intent(this, Section01Activity.class));
+    }
+
+
+    public void openDB(View view) {
+        Intent dbmanager = new Intent(this, AndroidManager.class);
+        startActivity(dbmanager);
     }
 
 

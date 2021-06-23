@@ -360,6 +360,7 @@
     <string name='Q_str09'>str09</string>
     <string name='Q_str09s'>str09s</string>
     <string name='Q_str09t'>str09t</string>
+    <string name="open_db_manager">Open DB Manager</string>
 
 
 </resources>

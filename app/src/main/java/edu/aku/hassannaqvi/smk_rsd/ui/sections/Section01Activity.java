@@ -86,7 +86,7 @@ public class Section01Activity extends AppCompatActivity {
         if (updcount > 0) {
             form.setUid(form.getDeviceId() + form.getId());
             db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
-            db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
+            //db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
