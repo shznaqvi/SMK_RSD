@@ -84,7 +84,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
 
     public void openForm(View v) {
-        OpenFormFunc(v.getId());
+        //openSection(v.getId());
     }
 
 
@@ -122,10 +122,10 @@ public class SectionMainActivity extends AppCompatActivity {
     }
 
 
-    private void OpenFormFunc(int id) {
+    public void openSection(View view) {
         Intent oF = new Intent();
-        if (!MainApp.userName.equals("0000")) {
-            switch (id) {
+        if (!MainApp.user.getUserName().equals("0000")) {
+            switch (view.getId()) {
                 case R.id.form01:
                     oF = new Intent(this, Section02Activity.class);
                     break;

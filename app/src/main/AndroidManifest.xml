@@ -47,7 +47,14 @@
             android:label="@string/hfinfo"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+
+        <activity
+            android:name=".ui.sections.SectionMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SMKRSD"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
         <activity
@@ -55,7 +62,7 @@
             android:label="@string/secone"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
         <activity
