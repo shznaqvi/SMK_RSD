@@ -7,15 +7,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section01Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section02Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section03Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section04Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section05Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section06Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section07Activity;
-import edu.aku.hassannaqvi.smk_rsd.ui.sections.Section08Activity;
-
-import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +14,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+
+    public void sectionPress(View view) {
+        finish();
+        startActivity(new Intent(this, Section01Activity.class));
     }
 
 
