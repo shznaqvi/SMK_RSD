@@ -64,13 +64,14 @@ public class Section04Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, Section05Activity.class));
+            startActivity(new Intent(this, SectionMainActivity.class));
         }
     }
 
 
     public void BtnEnd(View view) {
-        //AppUtilsKt.contextEndActivity(this);
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
     }
 
 
@@ -79,4 +80,8 @@ public class Section04Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+    }
 }

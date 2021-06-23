@@ -19,7 +19,6 @@ import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection08Binding;
-import edu.aku.hassannaqvi.smk_rsd.ui.EndingActivity;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
@@ -140,14 +139,14 @@ public class Section08Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionMainActivity.class));
         }
     }
 
 
     public void BtnEnd(View view) {
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
-        //AppUtilsKt.contextEndActivity(this);
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
     }
 
 
@@ -156,4 +155,8 @@ public class Section08Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+    }
 }
