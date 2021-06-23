@@ -100,7 +100,7 @@ public class Section01Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, Section02Activity.class));
+            startActivity(new Intent(this, SectionMainActivity.class));
         }
     }
 
