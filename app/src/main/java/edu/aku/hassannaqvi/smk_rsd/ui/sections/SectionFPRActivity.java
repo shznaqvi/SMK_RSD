@@ -11,20 +11,20 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.smk_rsd.R;
-import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
-import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection06Binding;
+import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySectionFprBinding;
 
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
-public class Section06Activity extends AppCompatActivity {
-    ActivitySection06Binding bi;
+public class SectionFPRActivity extends AppCompatActivity {
+    ActivitySectionFprBinding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section06);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_fpr);
         setupSkips();
         setSupportActionBar(bi.toolbar);
     }
@@ -74,8 +74,8 @@ public class Section06Activity extends AppCompatActivity {
 
 
     private boolean updateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
+        DatabaseHelper db = appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SFPR, form.sFPRtoString());
         if (updcount == 1) {
             return true;
         } else {
@@ -87,17 +87,18 @@ public class Section06Activity extends AppCompatActivity {
 
     public void BtnContinue(View view) {
         if (!formValidation()) return;
+        if (!addForm()) return;
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionMainActivity.class));
+            //startActivity(new Intent(this, RegisterActivity.class));
         }
     }
 
 
     public void BtnEnd(View view) {
         finish();
-        startActivity(new Intent(this, SectionMainActivity.class));
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 
 
@@ -105,6 +106,20 @@ public class Section06Activity extends AppCompatActivity {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
+    private boolean addForm() {
+        //if (!form.get_ID().equals("")) return true;
+        DatabaseHelper db = appInfo.dbHelper;
+        long rowid = db.addForm(form);
+        form.setId(String.valueOf(rowid));
+        if (rowid > 0) {
+            form.setUid(form.getDeviceId() + form.getId());
+            db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
+            return true;
+        } else {
+            Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
 
     @Override
     public void onBackPressed() {

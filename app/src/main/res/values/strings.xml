@@ -16,13 +16,13 @@
 
 
     <string name="healthfacilityinformation_mainheading">HEALTH FACILITY INFORMATION: </string>
-    <string name="maternalhealthregister_mainheading">Maternal Health Register: </string>
-    <string name="epihealthregister_mainheading">EPI Health Register: </string>
-    <string name="secondaryhealthcarefacilitiesobgynopdregister_mainheading">Secondary health care facilities- Ob/Gyn OPD register: </string>
-    <string name="obstetricregister_mainheading">Obstetric Register: </string>
-    <string name="familyplanningregister_mainheading">Family Planning Register: </string>
-    <string name="collectthroughstickersnewvariablesindhis_mainheading">Collect through Stickers new variables in DHIS: </string>
-    <string name="stockoutregisters_mainheading">Stock Out Registers: </string>
+    <string name="mhr_mainheading">Maternal Health Register: </string>
+    <string name="epi_mainheading">EPI Health Register: </string>
+    <string name="shf_mainheading">Secondary health care facilities- Ob/Gyn OPD register: </string>
+    <string name="obs_mainheading">Obstetric Register: </string>
+    <string name="fpr_mainheading">Family Planning Register: </string>
+    <string name="cfp_mainheading">Collect through Stickers new variables in DHIS: </string>
+    <string name="str_mainheading">Stock Out Registers: </string>
     <string name="btnSync">Download Data</string>
     <string name="btnUpload">Upload Data</string>
     <string name="btnDownload">Download Data</string>

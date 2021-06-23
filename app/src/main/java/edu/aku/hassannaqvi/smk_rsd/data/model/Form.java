@@ -6,6 +6,8 @@ import android.provider.BaseColumns;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.Observable;
+import androidx.databinding.PropertyChangeRegistry;
 
 import com.google.gson.GsonBuilder;
 
@@ -19,7 +21,7 @@ import edu.aku.hassannaqvi.smk_rsd.BR;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 
 
-public class Form extends BaseObservable {
+public class Form extends BaseObservable implements Observable {
 
     private final String TAG = "Form";
 
@@ -29,6 +31,8 @@ public class Form extends BaseObservable {
 
     //Not saving in DB
     private final LocalDate localDate = null;
+
+
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
@@ -48,8 +52,17 @@ public class Form extends BaseObservable {
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
+
+
     // SECTION VARIABLES
-    private String sA = StringUtils.EMPTY;
+    private String sMHR = StringUtils.EMPTY; //Maternal Health Register
+    private String sEPI = StringUtils.EMPTY; //EPI Health Register
+    private String sSHF = StringUtils.EMPTY; //Secondary healthcare facilities- Ob/Gyn OPD register
+    private String sOBS = StringUtils.EMPTY; //Obstetric Register
+    private String sFPR = StringUtils.EMPTY; //FP Register
+    private String sCFP = StringUtils.EMPTY; //Collect through Stickers new variables in DHIS
+    private String sSTR = StringUtils.EMPTY; //Stock Out Registers
+
     // FIELD VARIABLES
     private String mhr01 = StringUtils.EMPTY;
     private String mhr0197 = StringUtils.EMPTY;
@@ -162,6 +175,7 @@ public class Form extends BaseObservable {
     private String str09s = StringUtils.EMPTY;
     private String str09d = StringUtils.EMPTY;
     private String str09m = StringUtils.EMPTY;
+    private transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
 
 
     public Form() {
@@ -362,14 +376,75 @@ public class Form extends BaseObservable {
     }
 
     @Bindable
-    public String getsA() {
-        return sA;
+    public String getsMHR() {
+        return sMHR;
     }
 
-    public Form setsA(String sA) {
-        this.sA = sA;
+    public Form setsMHR(String sMHR) {
+        this.sMHR = sMHR;
         return this;
     }
+
+    @Bindable
+    public String getsEPI() {
+        return sEPI;
+    }
+
+    public void setsEPI(String sEPI) {
+        this.sEPI = sEPI;
+        notifyChange(BR.sEPI);
+    }
+
+    @Bindable
+    public String getsSHF() {
+        return sSHF;
+    }
+
+    public void setsSHF(String sSHF) {
+        this.sSHF = sSHF;
+        notifyChange(BR.sSHF);
+    }
+
+    @Bindable
+    public String getsOBS() {
+        return sOBS;
+    }
+
+    public void setsOBS(String sOBS) {
+        this.sOBS = sOBS;
+        notifyChange(BR.sOBS);
+    }
+
+    @Bindable
+    public String getsFPR() {
+        return sFPR;
+    }
+
+    public void setsFPR(String sFPR) {
+        this.sFPR = sFPR;
+        notifyChange(BR.sFPR);
+    }
+
+    @Bindable
+    public String getsCFP() {
+        return sCFP;
+    }
+
+    public void setsCFP(String sCFP) {
+        this.sCFP = sCFP;
+        notifyChange(BR.sCFP);
+    }
+
+    @Bindable
+    public String getsSTR() {
+        return sSTR;
+    }
+
+    public void setsSTR(String sSTR) {
+        this.sSTR = sSTR;
+        notifyChange(BR.sSTR);
+    }
+
 
     @Bindable
     public String getMhr01() {
@@ -714,7 +789,6 @@ public class Form extends BaseObservable {
         this.obs09 = obs09;
         notifyPropertyChanged(BR.obs09);
     }
-
 
 
     @Bindable
@@ -1532,7 +1606,7 @@ public class Form extends BaseObservable {
         this.synced = jsonObject.getString(FormsTable.COLUMN_SYNCED);
         this.syncDate = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
 
-        this.sA = jsonObject.getString(FormsTable.COLUMN_SA);
+        this.sMHR = jsonObject.getString(FormsTable.COLUMN_SMHR);
 
         return this;
 
@@ -1562,7 +1636,13 @@ public class Form extends BaseObservable {
         //For childCount
         //this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
 
-        sAHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SMHR)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SEPI)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSHF)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SOBS)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SFPR)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFP)));
+        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSTR)));
 
         return this;
     }
@@ -1575,7 +1655,7 @@ public class Form extends BaseObservable {
     }
 
 
-    public String sAtoString() {
+    public String sMHRtoString() {
         JSONObject json = new JSONObject();
 
         try {
@@ -1588,13 +1668,55 @@ public class Form extends BaseObservable {
                     .put("mhr04", mhr04)
                     .put("mhr0497", mhr0497)
                     .put("mhr05", mhr05)
-                    .put("mhr0597", mhr0597)
+                    .put("mhr0597", mhr0597);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sEPItoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
                     .put("epi01", epi01)
-                    .put("epi0197", epi0197)
+                    .put("epi0197", epi0197);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sSHFtoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
+
                     .put("shf01", shf01)
                     .put("shf0197", shf0197)
                     .put("shf02", shf02)
-                    .put("shf0297", shf0297)
+                    .put("shf0297", shf0297);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sOBStoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
+
                     .put("obs01", obs01)
                     .put("obs0197", obs0197)
                     .put("obs02", obs02)
@@ -1634,7 +1756,22 @@ public class Form extends BaseObservable {
                     .put("obs19", obs19)
                     .put("obs1997", obs1997)
                     .put("obs20", obs20)
-                    .put("obs2097", obs2097)
+                    .put("obs2097", obs2097);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sFPRtoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
+
                     .put("fpr01", fpr01)
                     .put("fpr0197", fpr0197)
                     .put("fpr02", fpr02)
@@ -1656,13 +1793,40 @@ public class Form extends BaseObservable {
                     .put("fpr10", fpr10)
                     .put("fpr1097", fpr1097)
                     .put("fpr11", fpr11)
-                    .put("fpr1197", fpr1197)
+                    .put("fpr1197", fpr1197);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sCFPtoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
                     .put("cfp01", cfp01)
                     .put("cfp0197", cfp0197)
                     .put("cfp02", cfp02)
                     .put("cfp0297", cfp0297)
                     .put("cfp03", cfp03)
-                    .put("cfp0397", cfp0397)
+                    .put("cfp0397", cfp0397);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sSTRtoString() {
+        JSONObject json = new JSONObject();
+
+        try {
+            json
                     .put("str01s", str01s)
                     .put("str01d", str01d)
                     .put("str01m", str01m)
@@ -1690,6 +1854,7 @@ public class Form extends BaseObservable {
                     .put("str09s", str09s)
                     .put("str09d", str09d)
                     .put("str09m", str09m);
+
         } catch (JSONException e) {
             e.printStackTrace();
             return "\"error\":, \"" + e.getMessage() + "\"";
@@ -1703,31 +1868,33 @@ public class Form extends BaseObservable {
         JSONObject json = new JSONObject();
 
         try {
-            json.put(FormsTable.COLUMN_ID, this.id == null ? JSONObject.NULL : this.id);
-            json.put(FormsTable.COLUMN_UID, this.uid == null ? JSONObject.NULL : this.uid);
-            json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
-            json.put(FormsTable.COLUMN_SYSDATE, this.sysDate == null ? JSONObject.NULL : this.sysDate);
-            json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
-            json.put(FormsTable.COLUMN_DISTRICT_NAME, this.districtName == null ? JSONObject.NULL : this.districtName);
-            json.put(FormsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
-            json.put(FormsTable.COLUMN_HF_NAME, this.hfName == null ? JSONObject.NULL : this.hfName);
-            json.put(FormsTable.COLUMN_REPORTING_MONTH, this.reportingMonth == null ? JSONObject.NULL : this.reportingMonth);
-            json.put(FormsTable.COLUMN_REPORTING_YEAR, this.reportingYear == null ? JSONObject.NULL : this.reportingYear);
-            json.put(FormsTable.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
-            json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag == null ? JSONObject.NULL : this.deviceTag);
-            json.put(FormsTable.COLUMN_APPVERSION, this.appver == null ? JSONObject.NULL : this.appver);
-            json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endTime == null ? JSONObject.NULL : this.endTime);
-            json.put(FormsTable.COLUMN_ISTATUS, this.iStatus == null ? JSONObject.NULL : this.iStatus);
-            json.put(FormsTable.COLUMN_ISTATUS96x, this.iStatus96x == null ? JSONObject.NULL : this.iStatus96x);
-            json.put(FormsTable.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-            json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate == null ? JSONObject.NULL : this.syncDate);
+            json.put(FormsTable.COLUMN_ID, this.id);
+            json.put(FormsTable.COLUMN_UID, this.uid);
+            json.put(FormsTable.COLUMN_USERNAME, this.userName);
+            json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
+            json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode);
+            json.put(FormsTable.COLUMN_DISTRICT_NAME, this.districtName);
+            json.put(FormsTable.COLUMN_HF_CODE, this.hfCode);
+            json.put(FormsTable.COLUMN_HF_NAME, this.hfName);
+            json.put(FormsTable.COLUMN_REPORTING_MONTH, this.reportingMonth);
+            json.put(FormsTable.COLUMN_REPORTING_YEAR, this.reportingYear);
+            json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
+            json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
+            json.put(FormsTable.COLUMN_APPVERSION, this.appver);
+            json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endTime);
+            json.put(FormsTable.COLUMN_ISTATUS, this.iStatus);
+            json.put(FormsTable.COLUMN_ISTATUS96x, this.iStatus96x);
+            json.put(FormsTable.COLUMN_SYNCED, this.synced);
+            json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
+            json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
+            json.put(FormsTable.COLUMN_SMHR, new JSONObject(sMHRtoString()));
+            json.put(FormsTable.COLUMN_SEPI, new JSONObject(sEPItoString()));
+            json.put(FormsTable.COLUMN_SSHF, new JSONObject(sSHFtoString()));
+            json.put(FormsTable.COLUMN_SOBS, new JSONObject(sOBStoString()));
+            json.put(FormsTable.COLUMN_SFPR, new JSONObject(sFPRtoString()));
+            json.put(FormsTable.COLUMN_SCFP, new JSONObject(sCFPtoString()));
+            json.put(FormsTable.COLUMN_SSTR, new JSONObject(sSTRtoString()));
 
-            json.put(FormsTable.COLUMN_SA, new JSONObject(sAtoString()));
-
-
-            if (this.sA != null && !this.sA.isEmpty()) {
-                json.put(FormsTable.COLUMN_SA, new JSONObject(this.sA));
-            }
 
             return json;
         } catch (JSONException e) {
@@ -1737,7 +1904,7 @@ public class Form extends BaseObservable {
     }
 
 
-    public void sAHydrate(String string) {
+    public void sMHRHydrate(String string) {
 
         if (string != null) {
 
@@ -1754,12 +1921,55 @@ public class Form extends BaseObservable {
                 this.mhr0497 = json.getString("mhr0497");
                 this.mhr05 = json.getString("mhr05");
                 this.mhr0597 = json.getString("mhr0597");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sEPIHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
                 this.epi01 = json.getString("epi01");
                 this.epi0197 = json.getString("epi0197");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sSHFHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
                 this.shf01 = json.getString("shf01");
                 this.shf0197 = json.getString("shf0197");
                 this.shf02 = json.getString("shf02");
                 this.shf0297 = json.getString("shf0297");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sOBSHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
+
                 this.obs01 = json.getString("obs01");
                 this.obs0197 = json.getString("obs0197");
                 this.obs02 = json.getString("obs02");
@@ -1800,6 +2010,22 @@ public class Form extends BaseObservable {
                 this.obs1997 = json.getString("obs1997");
                 this.obs20 = json.getString("obs20");
                 this.obs2097 = json.getString("obs2097");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sFPRHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
+
+
                 this.fpr01 = json.getString("fpr01");
                 this.fpr0197 = json.getString("fpr0197");
                 this.fpr02 = json.getString("fpr02");
@@ -1822,12 +2048,44 @@ public class Form extends BaseObservable {
                 this.fpr1097 = json.getString("fpr1097");
                 this.fpr11 = json.getString("fpr11");
                 this.fpr1197 = json.getString("fpr1197");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sCFPHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
+
+
                 this.cfp01 = json.getString("cfp01");
                 this.cfp0197 = json.getString("cfp0197");
                 this.cfp02 = json.getString("cfp02");
                 this.cfp0297 = json.getString("cfp0297");
                 this.cfp03 = json.getString("cfp03");
                 this.cfp0397 = json.getString("cfp0397");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sSTRHydrate(String string) {
+
+        if (string != null) {
+
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
+
+
                 this.str01s = json.getString("str01s");
                 this.str01d = json.getString("str01d");
                 this.str01m = json.getString("str01m");
@@ -1862,6 +2120,30 @@ public class Form extends BaseObservable {
     }
 
 
+    private synchronized void notifyChange(int propertyId) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.notifyChange(this, propertyId);
+    }
+
+    @Override
+    public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.add(callback);
+
+    }
+
+    @Override
+    public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry != null) {
+            propertyChangeRegistry.remove(callback);
+        }
+    }
+
+
     public static abstract class FormsTable implements BaseColumns {
         public static final String TABLE_NAME = "Forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
@@ -1876,7 +2158,13 @@ public class Form extends BaseObservable {
         public static final String COLUMN_HF_NAME = "hfName";
         public static final String COLUMN_REPORTING_MONTH = "reportingMonth";
         public static final String COLUMN_REPORTING_YEAR = "reportingYear";
-        public static final String COLUMN_SA = "sA";
+        public static final String COLUMN_SMHR = "sMHR";
+        public static final String COLUMN_SEPI = "sEPI";
+        public static final String COLUMN_SSHF = "sSHF";
+        public static final String COLUMN_SOBS = "sOBS";
+        public static final String COLUMN_SFPR = "sFPR";
+        public static final String COLUMN_SCFP = "sCFP";
+        public static final String COLUMN_SSTR = "sSTR";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_ISTATUS96x = "istatus96x";
         public static final String COLUMN_ENDINGDATETIME = "endingdatetime";
