@@ -6,7 +6,16 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.aku.hassannaqvi.smk_rsd.core.AndroidManager;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionCFPActivity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionEPIActivity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionFPRActivity;
 import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionIdentificationActivity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMHRActivity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionOBSActivity;
+import edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionSHFActivity;
+
+import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,50 +27,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void sectionPress(View view) {
+    /*public void sectionPress(View view) {
         finish();
         startActivity(new Intent(this, SectionIdentificationActivity.class));
-    }
+    }*/
 
 
-    public void openForm(View v) {
-        OpenFormFunc(v.getId());
-    }
-
-
-    public void OpenFormFunc(int id) {
+    public void sectionPress(View v) {
         Intent oF = null;
-        switch (id) {
-        /*    case R.id.formA:
-                oF = new Intent(this, Section01Activity.class);
+        switch (v.getId()) {
+            case R.id.openForm:
+                oF = new Intent(this, SectionIdentificationActivity.class);
                 break;
-            case R.id.formB:
-                oF = new Intent(this, Section02Activity.class);
+            case R.id.sec1:
+                oF = new Intent(this, SectionMHRActivity.class);
                 break;
-            case R.id.formC:
+            case R.id.sec2:
                 if (form == null)
-                    oF = new Intent(this, Section03Activity.class);
+                    oF = new Intent(this, SectionEPIActivity.class);
                 break;
-            case R.id.formD:
+            case R.id.sec3:
                 if (form == null)
-                    oF = new Intent(this, Section04Activity.class);
+                    oF = new Intent(this, SectionSHFActivity.class);
                 break;
-            case R.id.formE:
+            case R.id.sec4:
                 if (form == null)
-                    oF = new Intent(this, Section05Activity.class);
+                    oF = new Intent(this, SectionOBSActivity.class);
                 break;
-            case R.id.formF:
+            case R.id.sec5:
                 if (form == null)
-                    oF = new Intent(this, Section06Activity.class);
+                    oF = new Intent(this, SectionFPRActivity.class);
                 break;
-            case R.id.formG:
+            case R.id.onhold:
                 if (form == null)
-                    oF = new Intent(this, Section07Activity.class);
+                    oF = new Intent(this, SectionCFPActivity.class);
                 break;
-            case R.id.formH:
+            case R.id.openDBManager:
                 if (form == null)
-                    oF = new Intent(this, Section08Activity.class);
-                break;*/
+                    oF = new Intent(this, AndroidManager.class);
+                break;
         }
         startActivity(oF);
     }

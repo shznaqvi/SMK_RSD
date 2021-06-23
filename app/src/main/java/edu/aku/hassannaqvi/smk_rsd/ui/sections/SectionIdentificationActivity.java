@@ -26,13 +26,14 @@ import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySectionIdentificationBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Districts;
 import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
+import edu.aku.hassannaqvi.smk_rsd.utils.DateUtilsKt;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
 public class SectionIdentificationActivity extends AppCompatActivity {
     ActivitySectionIdentificationBinding bi;
-
-    private List<String> hfNames, districtNames;
+    private final String mon = new SimpleDateFormat("MMM-yyyy").format(new Date().getTime());
+    private List<String> hfNames, districtNames, reportingMonth;
     private List<String> hfCodes, districtCodes;
     private DatabaseHelper db;
 
@@ -119,6 +120,36 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
 
     public void populateSpinner(final Context context) {
+
+
+        reportingMonth = new ArrayList<>();
+        reportingMonth.add("....");
+        reportingMonth.add(mon.toUpperCase());
+        reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -1).toUpperCase());
+        reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -2).toUpperCase());
+        // Creating adapter for spinner
+        ArrayAdapter<String> monAdapter = new ArrayAdapter<>(context,
+                android.R.layout.simple_spinner_dropdown_item, reportingMonth);
+        // Drop down layout style - list view
+        monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        bi.reportMonth.setAdapter(monAdapter);
+        bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                /*String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
+                bi.reportingmonth.setText(s[0]);
+                bi.reportingmonth.setEnabled(false);
+                bi.reportingyear.setText(s[1]);
+                bi.reportingyear.setEnabled(false);*/
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         districtNames = new ArrayList<>();
         districtCodes = new ArrayList<>();
