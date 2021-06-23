@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.view.View;
 
-
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 
@@ -12,9 +11,8 @@ import java.io.File;
 import java.util.List;
 import java.util.Random;
 
-
-import edu.aku.hassannaqvi.smk_rsd.models.Users;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
+import edu.aku.hassannaqvi.smk_rsd.models.Users;
 public class MainApp extends Application {
 
     public static final String PROJECT_NAME = "SMK: Routine Service Deliver";
@@ -168,5 +166,6 @@ public class MainApp extends Application {
         MainApp.randHHNo = new int[HOUSEHOLDS_TO_RANDOMISE];
         MainApp.randHHNo =  hhno;
     }
+
 
 }

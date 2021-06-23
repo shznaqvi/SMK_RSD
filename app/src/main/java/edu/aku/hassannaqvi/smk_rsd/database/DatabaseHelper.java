@@ -82,7 +82,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_HF_NAME, form.getHfName());
         values.put(FormsTable.COLUMN_REPORTING_MONTH, form.getReportingMonth());
         values.put(FormsTable.COLUMN_REPORTING_YEAR, form.getReportingYear());
-        values.put(FormsTable.COLUMN_SA, form.getsA());
+        values.put(FormsTable.COLUMN_SMHR, form.getsMHR());
+        values.put(FormsTable.COLUMN_SEPI, form.getsEPI());
+        values.put(FormsTable.COLUMN_SSHF, form.getsSHF());
+        values.put(FormsTable.COLUMN_SOBS, form.getsOBS());
+        values.put(FormsTable.COLUMN_SFPR, form.getsFPR());
+        values.put(FormsTable.COLUMN_SCFP, form.getsCFP());
+        values.put(FormsTable.COLUMN_SSTR, form.getsSTR());
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
         values.put(FormsTable.COLUMN_ISTATUS96x, form.getiStatus96x());
@@ -991,6 +997,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         MainApp.user = loggedInUser;
-        return c.getCount() > 0 ;
+        return c.getCount() > 0;
+    }
+
+    public Form getFormByHF(String hfCode, String rMonth, String rYear) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause =
+                FormsTable.COLUMN_HF_CODE + "=? AND " +
+                        FormsTable.COLUMN_REPORTING_MONTH + "=? AND " +
+                        FormsTable.COLUMN_REPORTING_YEAR + "=?";
+
+        String[] whereArgs = {hfCode, rMonth, rYear};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+
+        Form allFC = null;
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allFC = new Form().Hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+
+
     }
 }

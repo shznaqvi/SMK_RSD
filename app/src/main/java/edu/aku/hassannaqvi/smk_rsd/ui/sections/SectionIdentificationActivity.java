@@ -23,14 +23,15 @@ import edu.aku.hassannaqvi.smk_rsd.R;
 import edu.aku.hassannaqvi.smk_rsd.core.MainApp;
 import edu.aku.hassannaqvi.smk_rsd.data.model.Form;
 import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
-import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySection01Binding;
+import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySectionIdentificationBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Districts;
 import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
-public class Section01Activity extends AppCompatActivity {
-    ActivitySection01Binding bi;
+public class SectionIdentificationActivity extends AppCompatActivity {
+    ActivitySectionIdentificationBinding bi;
+
     private List<String> hfNames, districtNames;
     private List<String> hfCodes, districtCodes;
     private DatabaseHelper db;
@@ -38,7 +39,7 @@ public class Section01Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section01);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_identification);
         db = MainApp.appInfo.dbHelper;
 
         setupSkips();
@@ -65,10 +66,10 @@ public class Section01Activity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setDistrictName(bi.distname.getSelectedItem().toString());
+        form.setDistrictName(districtNames.get(bi.distname.getSelectedItemPosition()));
         form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
 
-        form.setHfName(bi.facilityname.getSelectedItem().toString());
+        form.setHfName(hfNames.get(bi.facilityname.getSelectedItemPosition()));
         form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
         form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
@@ -77,16 +78,15 @@ public class Section01Activity extends AppCompatActivity {
     }
 
 
-    private boolean updateDB() {
+    private boolean addForm() {
 
         //if (!form.get_ID().equals("")) return true;
 
-        long updcount = db.addForm(form);
-        form.setId(String.valueOf(updcount));
-        if (updcount > 0) {
+        long rowid = db.addForm(form);
+        form.setId(String.valueOf(rowid));
+        if (rowid > 0) {
             form.setUid(form.getDeviceId() + form.getId());
             db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
-            //db.updatesFormColumn(Form.FormsTable.COLUMN_SA, form.sAtoString());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
@@ -97,11 +97,14 @@ public class Section01Activity extends AppCompatActivity {
 
     public void BtnContinue(View view) {
         if (!formValidation()) return;
-        saveDraft();
-        if (updateDB()) {
-            finish();
-            startActivity(new Intent(this, SectionMainActivity.class));
+
+        if (!hfFormExists()) {
+            saveDraft();
         }
+        // if (addForm()) {
+        finish();
+        startActivity(new Intent(this, RegisterActivity.class));
+        //}
     }
 
 
@@ -173,5 +176,11 @@ public class Section01Activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+    }
+
+    private boolean hfFormExists() {
+        form = new Form();
+        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportingmonth.getText().toString(), bi.reportingyear.getText().toString());
+        return form != null;
     }
 }

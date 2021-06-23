@@ -12,7 +12,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.Section02Activity" />
+            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMHRActivity" />
 
     </data>
 
@@ -26,12 +26,15 @@
         <!-- CUSTOM TOOLBAR -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
             android:theme="@style/ToolbarTheme"
-            app:titleTextAppearance="@style/ToolbarTheme" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
 
         <ScrollView

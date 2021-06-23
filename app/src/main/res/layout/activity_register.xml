@@ -7,33 +7,37 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.SectionMainActivity" />
+            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.RegisterActivity" />
     </data>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
-
-        <LinearLayout
+        android:orientation="vertical">
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            <TextView
-                android:id="@+id/lblMainMenu"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"
+            android:layout_marginTop="360dp"
+            android:fillViewport="true">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/mainmenu"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Health Facility Modules"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -51,16 +55,16 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="B"
+                        android:text="MHR"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form01"
+                        android:id="@+id/formMHR"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -68,7 +72,7 @@
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secone"
                         android:textSize="14sp" />
 
@@ -94,23 +98,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="C"
+                        android:text="EPI"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form02"
+                        android:id="@+id/formEPI"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/sectwo"
                         android:textSize="14sp" />
 
@@ -136,23 +140,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="D"
+                        android:text="SHF"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form03"
+                        android:id="@+id/formSHF"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secthree"
                         android:textSize="14sp" />
 
@@ -178,23 +182,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="E"
+                        android:text="OBS"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form04"
+                        android:id="@+id/formOBS"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secfour"
                         android:textSize="14sp" />
 
@@ -220,23 +224,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="F"
+                        android:text="FPR"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form05"
+                        android:id="@+id/formFPR"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secfive"
                         android:textSize="14sp" />
 
@@ -262,23 +266,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="G"
+                        android:text="CFP"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form06"
+                        android:id="@+id/formCFP"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secsix"
                         android:textSize="14sp" />
 
@@ -304,23 +308,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="56dp"
+                        android:layout_width="86dp"
                         android:layout_height="56dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:padding="0dp"
-                        android:text="H"
+                        android:text="STR"
                         android:textColor="@color/colorPrimary"
                         android:textSize="30dp" />
 
                     <Button
-                        android:id="@+id/form07"
+                        android:id="@+id/formSTR"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:background="@color/colorPrimaryLight"
                         android:gravity="start"
-                        android:onClick="openSection"
+                        android:onClick="openRegister"
                         android:text="@string/secseven"
                         android:textSize="14sp" />
 
@@ -329,41 +333,42 @@
             </androidx.cardview.widget.CardView>
 
 
-            <LinearLayout
-                android:id="@+id/fldGrpbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_End"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/button_shape_red"
-                    android:drawableTint="#ea0000"
-                    android:onClick="@{() -> callback.BtnEnd()}"
-                    android:text="Save Partially"
-                    android:visibility="visible" />
-
-                <Button
-                    android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/button_shape_green"
-                    android:drawableTint="#00ea00"
-                    android:onClick="@{() -> callback.BtnContinue()}"
-                    android:text="Save"
-                    android:textColor="@color/white"
-                    android:visibility="visible" />
-
             </LinearLayout>
 
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/fldGrpbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_End"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/button_shape_red"
+                android:drawableTint="#ea0000"
+                android:onClick="@{() -> callback.BtnEnd()}"
+                android:text="Save Partially"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_Continue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/button_shape_green"
+                android:drawableTint="#00ea00"
+                android:onClick="@{() -> callback.BtnContinue()}"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
         </LinearLayout>
-
-    </ScrollView>
-
+    </RelativeLayout>
 </layout>
