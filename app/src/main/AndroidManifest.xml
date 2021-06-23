@@ -102,7 +102,7 @@
             android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
         <activity
@@ -110,14 +110,21 @@
             android:label="@string/secseven"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+
+        <activity
+            android:name=".ui.EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.English"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
         <activity
             android:name=".ui.SyncActivity"
             android:label="Download and Upload Data Activity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
     </application>
