@@ -1637,12 +1637,12 @@ public class Form extends BaseObservable implements Observable {
         //this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
 
         sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SMHR)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SEPI)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSHF)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SOBS)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SFPR)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFP)));
-        sMHRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSTR)));
+        sEPIHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SEPI)));
+        sSHFHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSHF)));
+        sOBSHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SOBS)));
+        sFPRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SFPR)));
+        sCFPHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SCFP)));
+        sSTRHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SSTR)));
 
         return this;
     }
@@ -2145,7 +2145,7 @@ public class Form extends BaseObservable implements Observable {
 
 
     public static abstract class FormsTable implements BaseColumns {
-        public static final String TABLE_NAME = "Forms";
+        public static final String TABLE_NAME = "FormsRSD";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";

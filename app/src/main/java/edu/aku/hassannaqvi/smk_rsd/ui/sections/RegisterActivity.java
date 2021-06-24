@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import edu.aku.hassannaqvi.smk_rsd.ui.EndingActivity;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
 public class RegisterActivity extends AppCompatActivity {
+    private static final String TAG = "RegisterActivity";
     ActivityRegisterBinding bi;
 
     @Override
@@ -33,7 +35,13 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Toast.makeText(this, "Activity Resumed!", Toast.LENGTH_SHORT).show();
-
+        Log.d(TAG, "onResume: mhr " + form.getsMHR());
+        Log.d(TAG, "onResume: epi " + form.getsEPI());
+        Log.d(TAG, "onResume: shf " + form.getsSHF());
+        Log.d(TAG, "onResume: obs " + form.getsOBS());
+        Log.d(TAG, "onResume: fpr " + form.getsFPR());
+        Log.d(TAG, "onResume: cfp " + form.getsCFP());
+        Log.d(TAG, "onResume: str " + form.getsSTR());
         try {
             if (!new JSONObject(form.sMHRtoString()).get("mhr0597").equals("")) {
                 bi.formMHR.setEnabled(false);
