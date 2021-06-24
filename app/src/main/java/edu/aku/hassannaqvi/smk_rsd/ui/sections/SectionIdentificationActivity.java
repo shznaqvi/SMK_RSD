@@ -67,10 +67,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setDistrictName(districtNames.get(bi.distname.getSelectedItemPosition()));
+        form.setDistrictName(bi.distname.getSelectedItem().toString());
         form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
 
-        form.setHfName(hfNames.get(bi.facilityname.getSelectedItemPosition()));
+        form.setHfName(bi.facilityname.getSelectedItem().toString());
         form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
         form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
@@ -124,9 +124,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
         reportingMonth = new ArrayList<>();
         reportingMonth.add("....");
-        reportingMonth.add(mon.toUpperCase());
+        //reportingMonth.add(mon.toUpperCase());
         reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -1).toUpperCase());
         reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -2).toUpperCase());
+        reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -3).toUpperCase());
         // Creating adapter for spinner
         ArrayAdapter<String> monAdapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_spinner_dropdown_item, reportingMonth);
@@ -137,11 +138,13 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                /*String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
+
+                if (position == 0) return;
+                String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
                 bi.reportingmonth.setText(s[0]);
                 bi.reportingmonth.setEnabled(false);
                 bi.reportingyear.setText(s[1]);
-                bi.reportingyear.setEnabled(false);*/
+                bi.reportingyear.setEnabled(false);
             }
 
             @Override
@@ -154,11 +157,9 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         districtNames = new ArrayList<>();
         districtCodes = new ArrayList<>();
 
-        districtNames.add("....");
-        districtCodes.add("....");
 
         //Collection<HealthFacilities> dc = db.getAllTehsils(MainApp.DIST_ID);
-        ArrayList<Districts> dc = db.getAllDistricts();
+        ArrayList<Districts> dc = db.getDistrictsByUser(MainApp.user.getDist_id());
 
         for (Districts d : dc) {
             districtNames.add(d.getDistrictName());
@@ -166,33 +167,22 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         }
 
         bi.distname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, districtNames));
+        bi.distname.setEnabled(false);
 
 
-        bi.distname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        hfNames = new ArrayList<>();
+        hfCodes = new ArrayList<>();
 
-                if (position == 0) return;
+        hfNames.add("....");
+        hfCodes.add("....");
 
-                hfNames = new ArrayList<>();
-                hfCodes = new ArrayList<>();
+        ArrayList<HealthFacilities> pc = db.getHfByDist(MainApp.user.getDist_id());
+        for (HealthFacilities p : pc) {
+            hfNames.add(p.getHf_name());
+            hfCodes.add(p.getHfcode());
+        }
 
-                hfNames.add("....");
-                hfCodes.add("....");
-
-                ArrayList<HealthFacilities> pc = db.getHfByDist(districtCodes.get(position));
-                for (HealthFacilities p : pc) {
-                    hfNames.add(p.getHf_name());
-                    hfCodes.add(p.getHfcode());
-                }
-
-                bi.facilityname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+        bi.facilityname.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
 
 
         bi.facilityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -211,7 +201,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
     private boolean hfFormExists() {
         form = new Form();
-        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportingmonth.getText().toString(), bi.reportingyear.getText().toString());
+        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportMonth.getSelectedItem().toString());
         return form != null;
     }
 }

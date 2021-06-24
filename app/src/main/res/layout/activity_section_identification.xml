@@ -65,8 +65,9 @@
 
                             <TextView
                                 style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/Q_reportingdate" />
 
                             <!--<TextView
@@ -79,10 +80,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginStart="3sp"
-                                android:layout_weight="1"
-                                android:gravity="center"
+                                android:layout_weight="2"
+                                android:layout_gravity="center"
                                 android:padding="3dp"
-                                android:popupBackground="#d6d6d6"
+                                android:background="@color/colorPrimary"
+                                android:popupBackground="@color/colorPrimary"
                                 android:prompt="@string/reportingmonth"
                                 android:spinnerMode="dropdown" />
 
@@ -114,20 +116,16 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/reportingmonth"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:inputType="number"
-                                android:maxLength="2"
-                                app:maxValue="12"
-                                app:minValue="1"
-                                app:type="range" />
+                                android:hint="###"
+                                android:maxLength="3" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/reportingyear"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -135,10 +133,7 @@
                                 android:gravity="center"
                                 android:hint="####"
                                 android:inputType="number"
-                                android:maxLength="4"
-                                app:maxValue="2021"
-                                app:minValue="2020"
-                                app:type="range" />
+                                android:maxLength="4" />
 
                         </LinearLayout>
 
@@ -152,11 +147,6 @@
                     android:id="@+id/fldGrpCVdistname"
                     style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -165,25 +155,25 @@
 
                             <TextView
                                 style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/Q_distname" />
 
-                            <TextView
-                                android:layout_width="match_parent"
+                            <Spinner
+                                android:id="@+id/distname"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:text="@string/distname" />
+                                android:layout_gravity="center"
+                                android:layout_marginStart="3sp"
+                                android:layout_weight="2"
+                                android:background="@color/colorPrimary"
+                                android:padding="3dp"
+                                android:popupBackground="@color/colorPrimary"
+                                android:prompt="@string/distname"
+                                android:spinnerMode="dropdown" />
 
                         </LinearLayout>
-
-
-                        <Spinner
-                            android:id="@+id/distname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/distname" />
-
-                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -238,11 +228,6 @@
                     android:id="@+id/fldGrpCVfacilityname"
                     style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -251,24 +236,25 @@
 
                             <TextView
                                 style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/Q_facilityname" />
 
-                            <TextView
-                                android:layout_width="match_parent"
+                            <Spinner
+                                android:id="@+id/facilityname"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:text="@string/facilityname" />
+                                android:layout_gravity="center"
+                                android:layout_marginStart="3sp"
+                                android:layout_weight="2"
+                                android:background="@color/colorPrimary"
+                                android:padding="3dp"
+                                android:popupBackground="@color/colorPrimary"
+                                android:prompt="@string/facilityname"
+                                android:spinnerMode="dropdown" />
 
                         </LinearLayout>
-
-                        <Spinner
-                            android:id="@+id/facilityname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/facilityname" />
-
-                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
