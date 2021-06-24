@@ -921,6 +921,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return all;
     }
 
+    public ArrayList<Districts> getDistrictsByUser(String distid) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = Districts.TableDistricts.COLUMN_DISTRICT_CODE + "=?";
+        String[] whereArgs = {distid};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = Districts.TableDistricts._ID + " ASC";
+        ArrayList<Districts> all = new ArrayList<>();
+        try {
+            c = db.query(
+                    Districts.TableDistricts.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                all.add(new Districts().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return all;
+    }
+
     public ArrayList<HealthFacilities> getHfByDist(String distid) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -967,6 +1004,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 UsersTable.COLUMN_USERNAME,
                 UsersTable.COLUMN_PASSWORD,
                 UsersTable.COLUMN_FULLNAME,
+                UsersTable.COLUMN_DIST_ID,
         };
         String whereClause = UsersTable.COLUMN_USERNAME + "=? AND " + UsersTable.COLUMN_PASSWORD + "=?";
         String[] whereArgs = {username, password};
@@ -1000,7 +1038,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return c.getCount() > 0;
     }
 
-    public Form getFormByHF(String hfCode, String rMonth, String rYear) {
+    public Form getFormByHF(String hfCode, String rMonth) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -1008,10 +1046,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String whereClause;
         whereClause =
                 FormsTable.COLUMN_HF_CODE + "=? AND " +
-                        FormsTable.COLUMN_REPORTING_MONTH + "=? AND " +
-                        FormsTable.COLUMN_REPORTING_YEAR + "=?";
+                        FormsTable.COLUMN_REPORTING_MONTH + "=?";
 
-        String[] whereArgs = {hfCode, rMonth, rYear};
+        String[] whereArgs = {hfCode, rMonth};
 
         String groupBy = null;
         String having = null;
