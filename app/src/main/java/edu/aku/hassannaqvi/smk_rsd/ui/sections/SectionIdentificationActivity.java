@@ -67,10 +67,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setDistrictName(districtNames.get(bi.distname.getSelectedItemPosition()));
+        form.setDistrictName(bi.distname.getSelectedItem().toString());
         form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
 
-        form.setHfName(hfNames.get(bi.facilityname.getSelectedItemPosition()));
+        form.setHfName(bi.facilityname.getSelectedItem().toString());
         form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
         form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
@@ -124,9 +124,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
         reportingMonth = new ArrayList<>();
         reportingMonth.add("....");
-        reportingMonth.add(mon.toUpperCase());
+        //reportingMonth.add(mon.toUpperCase());
         reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -1).toUpperCase());
         reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -2).toUpperCase());
+        reportingMonth.add(DateUtilsKt.getMonthsBack("MMM-yyyy", -3).toUpperCase());
         // Creating adapter for spinner
         ArrayAdapter<String> monAdapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_spinner_dropdown_item, reportingMonth);
@@ -137,11 +138,13 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                /*String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
+
+                if (position == 0) return;
+                String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
                 bi.reportingmonth.setText(s[0]);
                 bi.reportingmonth.setEnabled(false);
                 bi.reportingyear.setText(s[1]);
-                bi.reportingyear.setEnabled(false);*/
+                bi.reportingyear.setEnabled(false);
             }
 
             @Override
