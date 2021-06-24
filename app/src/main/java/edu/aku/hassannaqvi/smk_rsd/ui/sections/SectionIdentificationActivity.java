@@ -201,7 +201,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
     private boolean hfFormExists() {
         form = new Form();
-        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportingmonth.getText().toString());
+        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportMonth.getSelectedItem().toString());
         return form != null;
     }
 }
