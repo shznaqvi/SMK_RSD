@@ -107,7 +107,7 @@ public class SectionFPRActivity extends AppCompatActivity {
     }
 
     private boolean addForm() {
-        //if (!form.get_ID().equals("")) return true;
+        if (!form.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
         long rowid = db.addForm(form);
         form.setId(String.valueOf(rowid));

@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     oF = new Intent(this, AndroidManager.class);
                 break;
         }
+        finish();
         startActivity(oF);
     }
 

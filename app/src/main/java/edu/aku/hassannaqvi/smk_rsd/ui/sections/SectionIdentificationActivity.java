@@ -31,6 +31,7 @@ import edu.aku.hassannaqvi.smk_rsd.utils.DateUtilsKt;
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;
 
 public class SectionIdentificationActivity extends AppCompatActivity {
+    private static final String TAG = "SectionIdentificationActivity";
     ActivitySectionIdentificationBinding bi;
     private final String mon = new SimpleDateFormat("MMM-yyyy").format(new Date().getTime());
     private List<String> hfNames, districtNames, reportingMonth;
@@ -73,8 +74,8 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setHfName(bi.facilityname.getSelectedItem().toString());
         form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
-        form.setReportingMonth(bi.reportingmonth.getText().toString().isEmpty() ? "-1" : bi.reportingmonth.getText().toString());
-        form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
+        form.setReportingMonth(bi.reportMonth.getSelectedItem().toString());
+        //   form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
 
     }
 
@@ -135,9 +136,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
         bi.reportMonth.setAdapter(monAdapter);
-        bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+     /*   bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "saveDraft: "+bi.reportMonth.getSelectedItem().toString());
 
                 if (position == 0) return;
                 String[] s = bi.reportMonth.getSelectedItem().toString().split("-");
@@ -151,7 +153,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
 
         districtNames = new ArrayList<>();
