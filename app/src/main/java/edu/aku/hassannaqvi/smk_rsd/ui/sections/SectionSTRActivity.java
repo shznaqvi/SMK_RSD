@@ -47,6 +47,8 @@ public class SectionSTRActivity extends AppCompatActivity {
         rglsnr(bi.str07s, bi.str07n, bi.fldGrpCVstr07t);
         rglsnr(bi.str08s, bi.str08n, bi.fldGrpCVstr08t);
         rglsnr(bi.str09s, bi.str09n, bi.fldGrpCVstr09t);
+
+
     }
 
 

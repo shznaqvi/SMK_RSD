@@ -211,8 +211,10 @@ public class DataUpWorkerALL extends Worker {
                         .build();
             } else {
 
+                MainApp.downloadData[position] = String.valueOf(result);
+
                 data = new Data.Builder()
-                        .putString("message", String.valueOf(result))
+                        //.putString("message", String.valueOf(result))
                         .putInt("position", this.position)
                         .build();
             }

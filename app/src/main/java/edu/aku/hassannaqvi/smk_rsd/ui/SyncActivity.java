@@ -136,6 +136,7 @@ public class SyncActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
+            // Add upload tables here
             case R.id.btnUpload:
                 bi.dataLayout.setVisibility(View.VISIBLE);
                 bi.photoLayout.setVisibility(View.GONE);
@@ -144,9 +145,12 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.clear();
                 MainApp.uploadData.clear();
 
-                // MobileHealth
+                // FORMS RSD
                 uploadTables.add(new SyncModel(Form.FormsTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedForms());
+
+                MainApp.downloadData = new String[uploadTables.size()];
+
                 setAdapter(uploadTables);
                 BeginUpload();
                 break;
@@ -159,6 +163,8 @@ public class SyncActivity extends AppCompatActivity {
                 bi.pBar.setVisibility(View.GONE);
                 downloadTables.clear();
                 boolean sync_flag = getIntent().getBooleanExtra(CONSTANTS.SYNC_LOGIN, false);
+
+                // Add Download Tables here
                 if (sync_flag) {
                     //campCode = getIntent().getStringExtra(CONSTANTS.SYNC_CAMPID_LOGIN);
                 } else {
@@ -391,13 +397,13 @@ public class SyncActivity extends AppCompatActivity {
                     if (workInfo.getState() != null &&
                             workInfo.getState() == WorkInfo.State.SUCCEEDED) {
 
-                        String result = workInfo.getOutputData().getString("message");
+                        String result = MainApp.downloadData[position];
 
                         int sSynced = 0;
                         int sDuplicate = 0;
                         StringBuilder sSyncedError = new StringBuilder();
                         JSONArray json;
-                        result = MainApp.downloadData[position];
+
                         if (result != null) {
                             if (result.length() > 0) {
                                 try {

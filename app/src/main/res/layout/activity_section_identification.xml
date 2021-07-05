@@ -333,7 +333,7 @@
                         android:background="@drawable/button_shape_green"
                         android:drawableTint="#00ea00"
                         android:onClick="BtnContinue"
-                        android:text="Save"
+                        android:text="Open"
                         android:textColor="@color/white" />
 
                 </LinearLayout>

@@ -33,10 +33,13 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (form.getiStatus().equals("1")) {
 
+
+        if (form.getiStatus().equals("1")) {
             bi.btnContinue.setVisibility(View.GONE);
+            bi.btnEnd.setVisibility(View.GONE);
         }
+
         try {
             if (!new JSONObject(form.sMHRtoString()).get("mhr0597").equals("")) {
                 bi.formMHR.setEnabled(false);
@@ -72,8 +75,21 @@ public class RegisterActivity extends AppCompatActivity {
                 bi.formSTR.setEnabled(false);
                 bi.formSTR.setBackgroundResource(R.color.dullWhite);
             }
+
+            if (
+                    bi.formMHR.isEnabled()
+                            || bi.formEPI.isEnabled()
+                            || bi.formSHF.isEnabled()
+                            || bi.formOBS.isEnabled()
+                            || bi.formFPR.isEnabled()
+                            || bi.formCFP.isEnabled()
+                            || bi.formSTR.isEnabled()
+            ) {
+                bi.btnContinue.setVisibility(View.GONE);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -82,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void BtnContinue() {
 
         finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
 
     }
 
@@ -90,8 +106,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void BtnEnd() {
 
         finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
-            //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
 
     }
 
