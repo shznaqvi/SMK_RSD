@@ -666,7 +666,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = null;
 
         String whereClause;
-        whereClause = FormsTable.COLUMN_SYNCED + " is null ";
+        whereClause = FormsTable.COLUMN_SYNCED + " is null AND "
+                + FormsTable.COLUMN_ISTATUS + "= '1' ";
 
         String[] whereArgs = null;
 
@@ -711,7 +712,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //update SyncedTables
-    public void updateSyncedForms(String id) {
+    public void updateSyncedFormsRSD(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column

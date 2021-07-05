@@ -100,6 +100,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
     public void BtnContinue(View view) {
         if (!formValidation()) return;
 
+
         if (!hfFormExists()) {
             saveDraft();
         }
