@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.smk_rsd.ui.sections;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -119,6 +118,7 @@ public class SectionOBSActivity extends AppCompatActivity {
         if (!addForm()) return;
         saveDraft();
         if (updateDB()) {
+            setResult(2);
             finish();
             //startActivity(new Intent(this, RegisterActivity.class));
         }
@@ -127,7 +127,7 @@ public class SectionOBSActivity extends AppCompatActivity {
 
     public void BtnEnd(View view) {
         finish();
-        startActivity(new Intent(this, RegisterActivity.class));
+        //  startActivity(new Intent(this, RegisterActivity.class));
     }
 
 

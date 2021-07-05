@@ -7,12 +7,13 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.smk_rsd.ui.sections.RegisterActivity" />
+            type="edu.aku.hassannaqvi.smk_rsd.ui.RegisterActivity" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/app_bg_gray"
         android:orientation="vertical">
         <!-- CUSTOM TOOLBAR -->
         <androidx.appcompat.widget.Toolbar
@@ -355,7 +356,7 @@
                 android:drawableTint="#ea0000"
                 android:onClick="@{() -> callback.BtnEnd()}"
                 android:text="Save Partially"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/btn_Continue"
@@ -367,7 +368,7 @@
                 android:onClick="@{() -> callback.BtnContinue()}"
                 android:text="Save"
                 android:textColor="@color/white"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
         </LinearLayout>
     </RelativeLayout>

@@ -321,7 +321,7 @@
     <string name='Q_obs18'>obs18</string>
     <string name='Q_obs19'>obs19</string>
     <string name='Q_obs20'>obs20</string>
-    <string name='Q_reportingdate'>reportingdate</string>
+    <string name='Q_reportingdate'>Reporting Date</string>
     <string name='Q_reportingyear'>reportingyear</string>
     <string name='Q_sec7hint'>sec7hint</string>
     <string name='Q_secfive'>secfive</string>
