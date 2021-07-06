@@ -21,7 +21,7 @@ public class MainApp extends Application {
     public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
     //public static final String _IP = "http://f38158/smk_hfa";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
-    public static final String _HOST_URL = MainApp._IP + "/smk_hfa/smk_fi/api/";// .TEST server;
+    public static final String _HOST_URL = MainApp._IP + "/smk_fi/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
