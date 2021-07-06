@@ -21,6 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/app_bg_gray"
         android:orientation="vertical">
 
 
@@ -37,311 +38,235 @@
 
         <ScrollView
             android:layout_width="match_parent"
+            android:padding="24dp"
             android:layout_height="wrap_content">
 
+            <androidx.cardview.widget.CardView
+                style="@style/cardView"
 
-            <LinearLayout
-                android:id="@+id/GrpName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_margin="24dp">
+
+                <LinearLayout
+                    android:id="@+id/GrpName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
 
-                <!-- reportingdate  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVreportingdate"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                    <!-- distname  Input   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVdistname"
+                        style="@style/cardView">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="@string/Q_reportingdate" />
-
-                            <!--<TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/reportingmonth" />-->
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bottom"
+                                android:orientation="vertical">
 
-                            <Spinner
-                                android:id="@+id/reportMonth"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="3sp"
-                                android:layout_weight="2"
-                                android:layout_gravity="center"
-                                android:padding="3dp"
-                                android:background="@color/colorPrimary"
-                                android:popupBackground="@color/colorPrimary"
-                                android:prompt="@string/reportingmonth"
-                                android:spinnerMode="dropdown" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/distname" />
 
-                        </LinearLayout>
+                                <Spinner
+                                    android:id="@+id/distname"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="56dp"
+                                    android:prompt="@string/distname"
+                                    android:spinnerMode="dropdown" />
 
-                   <!--     <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/sub_labels"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="Month" />
-
-                            <TextView
-                                style="@style/sub_labels"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="Year" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/reportingmonth"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:hint="###"
-                                android:maxLength="3" />
-
-                            <EditText
-                                android:id="@+id/reportingyear"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:hint="####"
-                                android:inputType="number"
-                                android:maxLength="4" />
-
-                        </LinearLayout>-->
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
 
 
-                <!-- distname  Input   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVdistname"
-                    style="@style/cardView">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="@string/Q_distname" />
-
-                            <Spinner
-                                android:id="@+id/distname"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="3sp"
-                                android:layout_weight="2"
-                                android:background="@color/colorPrimary"
-                                android:padding="3dp"
-                                android:popupBackground="@color/colorPrimary"
-                                android:prompt="@string/distname"
-                                android:spinnerMode="dropdown" />
-
-                        </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- distcode  Input-Numeric   -->
-                <!--<androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVdistcode"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_distcode" />
-
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/distcode" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bottom"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/facilityname" />
+
+                                <Spinner
+                                    android:id="@+id/facilityname"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="56dp"
+                                    android:prompt="@string/facilityname"
+                                    android:spinnerMode="dropdown" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/Q_reportingdate" />
+
+                                <!--<TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/reportingmonth" />-->
+
+                                <Spinner
+                                    android:id="@+id/reportMonth"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="56dp"
+                                    android:prompt="@string/reportingmonth"
+                                    android:spinnerMode="dropdown" />
+
+                            </LinearLayout>
+
+                            <!--     <LinearLayout
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:orientation="horizontal">
+
+                                     <TextView
+                                         style="@style/sub_labels"
+                                         android:layout_width="0dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="1"
+                                         android:text="Month" />
+
+                                     <TextView
+                                         style="@style/sub_labels"
+                                         android:layout_width="0dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="1"
+                                         android:text="Year" />
+
+                                 </LinearLayout>
+
+                                 <LinearLayout
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:orientation="horizontal">
+
+                                     <EditText
+                                         android:id="@+id/reportingmonth"
+                                         android:layout_width="0dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="1"
+                                         android:gravity="center"
+                                         android:hint="###"
+                                         android:maxLength="3" />
+
+                                     <EditText
+                                         android:id="@+id/reportingyear"
+                                         android:layout_width="0dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="1"
+                                         android:gravity="center"
+                                         android:hint="####"
+                                         android:inputType="number"
+                                         android:maxLength="4" />
+
+                                 </LinearLayout>-->
 
                         </LinearLayout>
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/distcode"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/distcode"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            app:maxValue="100"
-                            app:minValue="0"
-                            app:type="range" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>-->
-
-
-                <!-- facilityname  Input   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVfacilityname"
-                    style="@style/cardView">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="@string/Q_facilityname" />
-
-                            <Spinner
-                                android:id="@+id/facilityname"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="3sp"
-                                android:layout_weight="2"
-                                android:background="@color/colorPrimary"
-                                android:padding="3dp"
-                                android:popupBackground="@color/colorPrimary"
-                                android:prompt="@string/facilityname"
-                                android:spinnerMode="dropdown" />
-
-                        </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- facilitycode  Input-Numeric   -->
-                <!-- <androidx.cardview.widget.CardView
-                     android:id="@+id/fldGrpCVfacilitycode"
-                     style="@style/cardView">
-
-                     <LinearLayout
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:orientation="vertical">
+                    </androidx.cardview.widget.CardView>
+                    <!-- facilitycode  Input-Numeric   -->
+                    <!-- <androidx.cardview.widget.CardView
+                         android:id="@+id/fldGrpCVfacilitycode"
+                         style="@style/cardView">
 
                          <LinearLayout
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"
-                             android:background="@drawable/bottom"
-                             android:orientation="horizontal">
+                             android:orientation="vertical">
 
-                             <TextView
-                                 style="@style/quesNum"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="match_parent"
-                                 android:text="@string/Q_facilitycode" />
-
-                             <TextView
+                             <LinearLayout
                                  android:layout_width="match_parent"
-                                 android:layout_height="match_parent"
-                                 android:text="@string/facilitycode" />
+                                 android:layout_height="wrap_content"
+                                 android:background="@drawable/bottom"
+                                 android:orientation="horizontal">
+
+                                 <TextView
+                                     style="@style/quesNum"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="match_parent"
+                                     android:text="@string/Q_facilitycode" />
+
+                                 <TextView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     android:text="@string/facilitycode" />
+
+                             </LinearLayout>
+
+                             <com.edittextpicker.aliazaz.EditTextPicker
+                                 android:id="@+id/facilitycode"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:hint="@string/facilitycode"
+                                 android:inputType="number"
+                                 android:maxLength="3"
+                                 app:maxValue="100"
+                                 app:minValue="0"
+                                 app:type="range" />
 
                          </LinearLayout>
 
-                         <com.edittextpicker.aliazaz.EditTextPicker
-                             android:id="@+id/facilitycode"
-                             android:layout_width="match_parent"
-                             android:layout_height="wrap_content"
-                             android:hint="@string/facilitycode"
-                             android:inputType="number"
-                             android:maxLength="3"
-                             app:maxValue="100"
-                             app:minValue="0"
-                             app:type="range" />
-
-                     </LinearLayout>
-
-                 </androidx.cardview.widget.CardView>-->
+                     </androidx.cardview.widget.CardView>-->
 
 
-                <!--EndButton LinearLayout-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="24dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_End"
-                        android:layout_width="wrap_content"
+                    <!--EndButton LinearLayout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="12dp"
-                        android:background="@drawable/button_shape_red"
-                        android:drawableTint="#ea0000"
-                        android:onClick="BtnEnd"
-                        android:text="Cancel"
-                        android:textColor="@color/white" />
+                        android:layout_marginTop="24dp"
+                        android:gravity="end"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btn_Continue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="12dp"
-                        android:background="@drawable/button_shape_green"
-                        android:drawableTint="#00ea00"
-                        android:onClick="BtnContinue"
-                        android:text="Open"
-                        android:textColor="@color/white" />
+                        <Button
+                            android:id="@+id/btn_End"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:background="@drawable/button_shape_red"
+                            android:drawableTint="#ea0000"
+                            android:onClick="BtnEnd"
+                            android:text="Cancel"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:id="@+id/btn_Continue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:background="@drawable/button_shape_green"
+                            android:drawableTint="#00ea00"
+                            android:onClick="BtnContinue"
+                            android:text="Open"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+                    <!--EndButton LinearLayout-->
+
 
                 </LinearLayout>
-                <!--EndButton LinearLayout-->
-
-
-            </LinearLayout>
-
+            </androidx.cardview.widget.CardView>
         </ScrollView>
 
 

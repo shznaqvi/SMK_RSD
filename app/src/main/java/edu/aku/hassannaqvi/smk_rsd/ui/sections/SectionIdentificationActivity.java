@@ -26,6 +26,7 @@ import edu.aku.hassannaqvi.smk_rsd.database.DatabaseHelper;
 import edu.aku.hassannaqvi.smk_rsd.databinding.ActivitySectionIdentificationBinding;
 import edu.aku.hassannaqvi.smk_rsd.models.Districts;
 import edu.aku.hassannaqvi.smk_rsd.models.HealthFacilities;
+import edu.aku.hassannaqvi.smk_rsd.ui.RegisterActivity;
 import edu.aku.hassannaqvi.smk_rsd.utils.DateUtilsKt;
 
 import static edu.aku.hassannaqvi.smk_rsd.core.MainApp.form;

@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:background="@drawable/app_bg_color"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -34,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@drawable/app_bg_color"
             android:padding="16dp">
 
             <LinearLayout
@@ -126,7 +126,6 @@
                                     android:paddingBottom="8dp"
                                     android:radius="2dp"
                                     android:singleLine="true"
-                                    android:textColor="@color/colorPrimary"
                                     android:textSize="18sp" />
 
                                 <LinearLayout
@@ -156,7 +155,6 @@
                                         android:paddingBottom="8dp"
                                         android:radius="2dp"
                                         android:singleLine="true"
-                                        android:textColor="@color/colorPrimary"
                                         android:textSize="18sp" />
 
                                     <ImageButton
@@ -166,6 +164,7 @@
                                         android:onClick="@{callback::onShowPasswordClick}"
                                         android:paddingStart="12dp"
                                         android:paddingEnd="12dp"
+                                        android:background="@android:color/white"
                                         android:src="@drawable/ic_login_eye"
                                         android:textSize="20sp" />
 
