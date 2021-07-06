@@ -315,6 +315,7 @@
 
     <style name="Theme.splashscreen" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@drawable/app_icon</item>
+        <item name="android:windowAnimationStyle">@drawable/app_icon</item>
     </style>
 
     <!-- This configures the styles for the title within the Toolbar  -->
